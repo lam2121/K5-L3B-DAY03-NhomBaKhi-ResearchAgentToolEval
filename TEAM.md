@@ -5,7 +5,7 @@
 - Tên nhóm: Nhóm Bá Khí (`NhomBaKhi`)
 - Lớp: L3B
 - Repo nhóm: `K5-L3B-DAY03-NhomBaKhi-ResearchAgentToolEval`
-- URL repo, nhánh nộp, commit chốt: `https://github.com/lam2121/K5-L3B-DAY03-NhomBaKhi-ResearchAgentToolEval`, nhánh `main`
+- URL repo, nhánh nộp, commit chốt: `https://github.com/lam2121/K5-L3B-DAY03-NhomBaKhi-ResearchAgentToolEval`, nhánh `main`, commit chốt `54e92f0`
 
 ## Thành viên
 
