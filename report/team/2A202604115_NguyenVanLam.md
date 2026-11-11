@@ -3,9 +3,9 @@
 ## 1. Thông tin thành viên
 
 - Họ tên: Nguyễn Văn Lâm
-- MSSV: `2A202604115`
-- Email: `26ai.lamnv@vinuni.edu.vn`
-- GitHub: `lam2121`
+- MSSV: 2A202604115
+- Email: 26ai.lamnv@vinuni.edu.vn
+- GitHub: lam2121
 - Vai trò chính (Trưởng nhóm): UI & Demo Lead (`starter_v0/app.py`, Cloudflare Tunnel), phụ trách tổng hợp Báo cáo chung (`report/team/group_report.md`), `TEAM.md`, báo cáo cá nhân và điều phối nộp bài.
 
 ## 2. Phần việc phụ trách

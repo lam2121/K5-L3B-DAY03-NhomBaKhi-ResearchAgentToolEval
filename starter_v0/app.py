@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+import csv
 import os
 import json
 from datetime import datetime
@@ -159,9 +160,38 @@ if "transcript_data" not in st.session_state:
         "turns": [],
     }
 
-# Initialize provider to get default model
-gemini_provider = make_provider("gemini")
-configured_model = os.getenv("GEMINI_MODEL") or getattr(gemini_provider, "default_model", "gemini-3.5-flash-lite")
+PROVIDER_OPTIONS = ["openrouter", "gemini", "openai", "anthropic", "ollama"]
+PROVIDER_MODEL_ENV = {
+    "openrouter": "OPENROUTER_MODEL",
+    "gemini": "GEMINI_MODEL",
+    "openai": "OPENAI_MODEL",
+    "anthropic": "ANTHROPIC_MODEL",
+    "ollama": "OLLAMA_MODEL",
+}
+
+
+def _default_provider() -> str:
+    """Chọn provider đầu tiên đã cấu hình key trong môi trường, mặc định openrouter."""
+    env_order = [
+        ("openrouter", "OPENROUTER_API_KEY"),
+        ("gemini", "GEMINI_API_KEY"),
+        ("openai", "OPENAI_API_KEY"),
+        ("anthropic", "ANTHROPIC_API_KEY"),
+    ]
+    for name, env_var in env_order:
+        if os.getenv(env_var):
+            return name
+    if os.getenv("OLLAMA_MODEL"):
+        return "ollama"
+    return "openrouter"
+
+
+def _default_model_for_provider(provider_name: str, provider_obj: Any) -> str:
+    """Lấy model mặc định từ biến môi trường hoặc từ provider instance."""
+    env_var = PROVIDER_MODEL_ENV.get(provider_name)
+    if env_var and os.getenv(env_var):
+        return os.getenv(env_var, "")
+    return getattr(provider_obj, "default_model", "") or ""
 
 # Helper to load available versions from version_log.csv
 def get_available_versions() -> list[dict[str, str]]:
@@ -208,17 +238,37 @@ def get_tools_for_version(version: str) -> list[dict[str, Any]]:
 
 
 # ---------------------------------------------------------
-# Sidebar Controls (Only Your Model)
+# Sidebar Controls (Provider, Model & Version)
 # ---------------------------------------------------------
 with st.sidebar:
     st.markdown("### **Agent Settings**")
     st.caption("Research Agent · Tool Calling Loop")
 
+    default_provider_name = _default_provider()
+    provider_name = st.selectbox(
+        "Provider",
+        options=PROVIDER_OPTIONS,
+        index=PROVIDER_OPTIONS.index(default_provider_name),
+        key="provider_select",
+        help="Chọn nhà cung cấp LLM khớp với API key trong starter_v0/.env.",
+    )
+    active_provider = make_provider(provider_name)
+    default_model = _default_model_for_provider(provider_name, active_provider)
+
+    if st.session_state.get("active_provider") != provider_name:
+        st.session_state.active_provider = provider_name
+        st.session_state.model_id_input = default_model
+
+    required_env = getattr(active_provider, "api_key_env", "")
+    has_api_key = bool(os.getenv(required_env) or getattr(active_provider, "api_key_default", None))
+    if required_env and not has_api_key:
+        st.caption(f"⚠️ Chưa thấy `{required_env}` trong môi trường/`.env`.")
+
     # Editable Model ID to match user's exact model
     model_name = st.text_input(
         "Model ID",
-        value=configured_model,
-        help="Nhập chính xác tên model của bạn (ví dụ: gemini-3.5-flash-lite, gemini-2.5-flash, gemini-1.5-flash...)",
+        key="model_id_input",
+        help="Nhập chính xác tên model theo provider đã chọn (vd: openai/gpt-4o-mini, gemini-3.5-flash-lite...).",
     )
 
     available_versions = get_available_versions()
@@ -227,10 +277,10 @@ with st.sidebar:
         if standard_v not in version_keys:
             version_keys.append(standard_v)
 
-    # Set default to highest available in log or v2
+    # Set default to v3 (latest) or highest available in log
     default_idx = len(version_keys) - 1
-    if "v2" in version_keys:
-        default_idx = version_keys.index("v2")
+    if "v3" in version_keys:
+        default_idx = version_keys.index("v3")
 
     version_tag = st.selectbox(
         "Evaluation Version Tag",
@@ -297,7 +347,7 @@ st.markdown(
     <div class="custom-header">
         <div class="brand-group">
             <span class="brand-title">Research Assistant</span>
-            <span class="badge">{model_name} · {version_tag}</span>
+            <span class="badge">{provider_name} · {model_name} · {version_tag}</span>
         </div>
         <div class="badge">
             {len(tool_decls)} Tools Available
@@ -384,8 +434,8 @@ if prompt:
         status_placeholder.markdown("*(Đang phân tích & định tuyến tools...)*")
 
         try:
-            # Uses user's Gemini provider and chosen model
-            provider = gemini_provider
+            # Uses selected provider and chosen model
+            provider = active_provider
             tools_json = to_openai_tools(tool_decls)
 
             # Build history for multi-turn

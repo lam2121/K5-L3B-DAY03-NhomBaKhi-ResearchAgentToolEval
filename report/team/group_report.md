@@ -20,7 +20,7 @@
 
 **Cách chạy UI:** `cd starter_v0 && python -m streamlit run app.py` (dependency `streamlit>=1.30.0` đã được khai báo trong `starter_v0/requirements.txt`).
 
-**Link dùng thử (deploy):**
+**Link cục bộ :** http://localhost:8501
 
 > Chạy cục bộ qua Streamlit UI theo hướng dẫn ở trên (`http://localhost:8501`).
 
