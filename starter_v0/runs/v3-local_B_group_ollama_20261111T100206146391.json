@@ -1,0 +1,1094 @@
+{
+  "run_id": "v3-local_B_group_ollama_20261111T100206146391",
+  "version": "v3-local",
+  "artifact_version": "v3-local+p90e5ccb74af1+t9231a21349f9",
+  "prompt_hash": "90e5ccb74af12ca6bf8d6038da33478aa53fa1e2ca46d9277f24c570e972387c",
+  "tools_hash": "9231a21349f9af032a885efa043556c66f953c20a524ada266a8ebea3a243eb9",
+  "phase": "B",
+  "suite": "group",
+  "provider": "ollama",
+  "model": "qwen2.5:0.5b",
+  "system_prompt": "D:\\VinUniLab\\K5-L3B-DAY03-NhomBaKhi-ResearchAgentToolEval\\starter_v0\\artifacts\\system_prompt.md",
+  "tools": "D:\\VinUniLab\\K5-L3B-DAY03-NhomBaKhi-ResearchAgentToolEval\\starter_v0\\artifacts\\tools.yaml",
+  "eval_cases": "data\\eval_group.json",
+  "dataset_id": "day03_v2_research_group",
+  "dataset_role": "group",
+  "description": "Case do NHÓM tự viết thêm để cover thêm trường hợp. Mỗi case cần: id, phase='B', query HOẶC turns, failure_type (thuộc allowed_failure_types), và expect (tool_calls[...] hoặc no_tool=true). Nên kèm metadata.what_it_tests.",
+  "generated_at": "2026-11-11T10:02:06",
+  "summary": {
+    "total_cases": 10,
+    "measured_cases": 10,
+    "provider_error_cases": 0,
+    "passed_cases": 3,
+    "case_accuracy": 0.3,
+    "tool_routing_accuracy": 0.9,
+    "argument_accuracy": 0.3,
+    "multiturn_accuracy": 0.2,
+    "failure_counts": {
+      "wrong_tool": 3,
+      "wrong_arg_value": 3,
+      "wrong_boundary": 1
+    },
+    "observed_mismatch_counts": {
+      "wrong_arg_value": 6,
+      "missing_tool_call": 1
+    }
+  },
+  "results": [
+    {
+      "id": "G01_topic_radar_monthly_robotics",
+      "phase": "B",
+      "suite": "group",
+      "case_suite": "group",
+      "is_multiturn": false,
+      "metadata": {
+        "what_it_tests": "Routes a cross-platform news-and-X comparison to topic_radar, preserves the one-month window and per-source limit, and disables optional article extraction."
+      },
+      "input": "Compare news coverage and public discussion on X about robotics from the past month. Return up to 4 news results and 4 posts. Do not scrape or enrich article pages.",
+      "expect": {
+        "tool_calls": [
+          {
+            "name": "topic_radar",
+            "args": {
+              "query": "robotics",
+              "timeframe": "month",
+              "limit": 4,
+              "include_social": true
+            }
+          }
+        ]
+      },
+      "result": {
+        "passed": false,
+        "routing_correct": true,
+        "args_correct": false,
+        "actual_tool_calls": [
+          {
+            "name": "topic_radar",
+            "args": {
+              "query": "tìm robotics"
+            }
+          }
+        ],
+        "actual_text": "",
+        "case_failure_type": "wrong_tool",
+        "observed_mismatch": "wrong_arg_value",
+        "failure_type": "wrong_tool",
+        "failures": [
+          "query: expected 'robotics', got 'tìm robotics'",
+          "timeframe: expected 'month', got None",
+          "limit: expected 4, got None",
+          "include_social: expected True, got None"
+        ]
+      },
+      "tool_results": [
+        {
+          "tool": "topic_radar",
+          "args": {
+            "query": "tìm robotics"
+          },
+          "result": {
+            "tool": "topic_radar",
+            "query": "tìm robotics",
+            "timeframe": "week",
+            "items": [
+              {
+                "title": "tìm",
+                "url": "https://tavily.com/knowledge/company/enZuaKg573Rw",
+                "source": "tavily.com",
+                "summary": "# JoFi HR - Phần mềm TÌM NGUỒN cho Nhà tuyển dụng\nID: enZuaKg573Rw\nWebsite: www.hr.jofi.ai\nHeadquarters: Ho Chi Minh, Vietnam\nLinkedIn: www.linkedin.com/company/jofi-hr-phan-mem-tim-nguon · 532 followers\nIndustry: Software Development\nCompany type: Public Company\nFounded: 2025\nSocial profiles: www.facebook.com/people/jofi-job-fit-with-ai/61582761113242, www.youtube.com/@jofi_aisourcing [...] Description: JoFi.ai is an AI-powered recruitment platform that provides internal sourcing, LinkedIn sourcing, CV parsing, and a full ATS. [...] ## Products and services\nKeywords: human resources, ai sourcing, talent sourcing, passive candidate sourcing, candidate ranking, advanced filtering, ai matching, candidate database, recruitment technology, recruitment software, recruiter tools, recruitment analytics",
+                "date": null,
+                "section": "news",
+                "provider": "tavily"
+              },
+              {
+                "title": "tìm",
+                "url": "https://tavily.com/knowledge/company/io3ofyx8cMlm",
+                "source": "tavily.com",
+                "summary": "# HỖ TRỢ TÌM VIỆC\nID: io3ofyx8cMlm\nWebsite: www.bit.ly/fbhttv\nHeadquarters: Ho Chi Minh, Vietnam\nLinkedIn: www.linkedin.com/company/hotrotimviec · 616 followers\nIndustry: Human Resources Services\nCompany type: Partnership\nSocial profiles: www.facebook.com/bitly, www.facebook.com/profile.php?id=100087682201636, www.twitter.com/bitly, www.instagram.com/bitly\nDescription: Bitly is a company that provides website security services. [...] ## Products and services\nKeywords: technology/internet services, links, website security, users, bitly, threats\n\n## Headcount\n- Now: 3 · +2 yearly (200%) · +2 quarterly · +2 monthly\n\n## Reputation\n- Open roles: 0",
+                "date": null,
+                "section": "news",
+                "provider": "tavily"
+              },
+              {
+                "title": "tìm",
+                "url": "https://tavily.com/knowledge/company/lx7lkGtY4cWj",
+                "source": "tavily.com",
+                "summary": "# TalentMatch - Người tìm việc, Việc tìm người\nID: lx7lkGtY4cWj\nHeadquarters: Hà Nội, Hanoi, Vietnam\nLinkedIn: www.linkedin.com/company/talentjobseeker · 545 followers\nIndustry: IT Services and IT Consulting\nCompany type: Nonprofit\nDescription: Sharing Opportunities from others to others Work with all my Passion, Less money for surviving [...] ## Headcount\n- Now: 7 · +4 yearly (133.3%) · +2 quarterly · 0 monthly\n  - South Eastern Asia: 1\n  - Eastern Europe: 0\n  - Latin America: 0\n  - Southern Europe: 0\n  - Sub Saharan Africa: 0\n  - Central Asia: 0\n  - Northern America: 0\n  - Australia New Zealand: 0\n  - Northern Europe: 0\n  - Polynesia: 0\n  - Southern Asia: 0\n  - Northern Africa: 0\n  - Melanesia: 0\n  - Western Europe: 0\n  - Western Asia: 0 [...] ## Technology\n- Detected: 58\n- fintech · last seen 2026-08-24\n- microservices · last seen 2026-08-24\n- figma · last seen 2026-08-24\n- scala · last seen 2026-07-27\n- redis · last seen 2026-07-27\n- postgresql · last seen 2026-07-27\n- nosql · last seen 2026-07-27\n- docker · last seen 2026-07-27\n\n## Reputation\n- Open roles: 0",
+                "date": null,
+                "section": "news",
+                "provider": "tavily"
+              },
+              {
+                "title": "South Korea aims to master core robotics technology and has room for cooperation with Vietnam.",
+                "url": "https://www.vietnam.vn/en/han-quoc-huong-toi-lam-chu-cong-nghe-loi-robot-va-du-dia-hop-tac-voi-viet-nam",
+                "source": "vietnam.vn",
+                "summary": "ttxvn_kieu-bao-tai-han-quoc-gui-tron-niem-tin-vao-quoc-hoi-viet-nam-khoa-moi-8634391.jpg. (Photo: Duc Thang/VNA)\")\n\nMr. Dao Tuan Hung, Chairman of the Association of Vietnamese Businesses in Korea (BAViK). (Photo: Duc Thang/VNA) [...] ### Deep processing leverages the increased value of agricultural products.\n\nĐài truyền hình Việt Nam\nmột giờ trước\n\nTrump said Jensen Huang is a good person and should continue to lead Nvidia.\n\n### Trump said Jensen Huang is a good person and should continue to lead Nvidia.\n\nVietNamNet\n2 giờ trước\n\nWas the iPhone Duo a complete failure?\n\n### Was the iPhone Duo a complete failure?\n\nVietNamNet\n2 giờ trước\n\nMoney is flowing out of the country from Chinese AI short film apps. [...] ### Money is flowing out of the country from Chinese AI short film apps.\n\nVietNamNet\n2 giờ trước\n\nBe aware of the risk of your child's smartwatch being hacked.\n\n### Be aware of the risk of your child's smartwatch being hacked.\n\nBáo Dn trí\n3 giờ trước",
+                "date": "Tue, 10 Nov 2026 03:00:00 GMT",
+                "section": "news",
+                "provider": "tavily"
+              },
+              {
+                "title": "@antopatrex1 What's your take on customers here – are they net new to robotics or generally have some robotics",
+                "summary": "@antopatrex1 What's your take on customers here – are they net new to robotics or generally have some robotics deployed already and are upscaling?",
+                "url": "https://x.com/paxtechnica/status/2120344040759820336",
+                "source": "x.com",
+                "section": "social",
+                "provider": "rapidapi",
+                "date": "Wed Nov 11 02:33:08 +0000 2026",
+                "metrics": {
+                  "likes": 1,
+                  "retweets": 0
+                }
+              },
+              {
+                "title": "@lilbluecaboose This is such hard cope. AI is already doing jobs in accounting, law, insurance, finance, and e",
+                "summary": "@lilbluecaboose This is such hard cope. AI is already doing jobs in accounting, law, insurance, finance, and every other white collar job. The only safe jobs for now are manual labor. And even those will happen soon when AI masters robotics.",
+                "url": "https://x.com/ting_bu_dong2/status/2120324637418786950",
+                "source": "x.com",
+                "section": "social",
+                "provider": "rapidapi",
+                "date": "Wed Nov 11 01:16:01 +0000 2026",
+                "metrics": {
+                  "likes": 0,
+                  "retweets": 0
+                }
+              },
+              {
+                "title": "If you can help.\n🤖 My Robotics club members are looking for LEGO SPIKE kits.\nNew or Used https://t.co/hCoQGcr7",
+                "summary": "If you can help.\n🤖 My Robotics club members are looking for LEGO SPIKE kits.\nNew or Used https://t.co/hCoQGcr7zA",
+                "url": "https://x.com/Tim_TPBrown/status/2120296104231350761",
+                "source": "x.com",
+                "section": "social",
+                "provider": "rapidapi",
+                "date": "Tue Nov 10 23:22:39 +0000 2026",
+                "metrics": {
+                  "likes": 0,
+                  "retweets": 0
+                }
+              },
+              {
+                "title": "Open-source is how AI research moved so fast, and robotics deserves the same.\n\nThursday marks a first step tow",
+                "summary": "Open-source is how AI research moved so fast, and robotics deserves the same.\n\nThursday marks a first step toward making the real world truly open and learnable for Physical AI.",
+                "url": "https://x.com/tim404x/status/2120283721886818408",
+                "source": "x.com",
+                "section": "social",
+                "provider": "rapidapi",
+                "date": "Tue Nov 10 22:33:26 +0000 2026",
+                "metrics": {
+                  "likes": 13,
+                  "retweets": 1
+                }
+              },
+              {
+                "title": "When it comes to smart farms and ag technology, Tim Marquis says at @JohnDeere they want to do more than build",
+                "summary": "When it comes to smart farms and ag technology, Tim Marquis says at @JohnDeere they want to do more than build great tractors. Catch our entire conversation by clicking our story below.\n\n#agtechnology #automation #robotics #ai \n\nhttps://t.co/99pdkF4vXo",
+                "url": "https://x.com/PNWAgNetwork/status/2120239625482703174",
+                "source": "x.com",
+                "section": "social",
+                "provider": "rapidapi",
+                "date": "Tue Nov 10 19:38:13 +0000 2026",
+                "metrics": {
+                  "likes": 0,
+                  "retweets": 0
+                }
+              }
+            ],
+            "signals": {
+              "news_results": 4,
+              "news_domains": 2,
+              "x_post_results": 5,
+              "shared_terms": [
+                "ai",
+                "it",
+                "job",
+                "my",
+                "new",
+                "now",
+                "open",
+                "robotics",
+                "technology",
+                "tim",
+                "your"
+              ]
+            },
+            "status": "ok",
+            "warnings": [],
+            "note": "These are small API samples; counts and overlap are not proof of popularity or truth."
+          }
+        }
+      ]
+    },
+    {
+      "id": "G02_evidence_finder_snippets",
+      "phase": "B",
+      "suite": "group",
+      "case_suite": "group",
+      "is_multiturn": false,
+      "metadata": {
+        "what_it_tests": "Tests claim extraction, requested number of distinct-domain sources, and disabling deep page extraction."
+      },
+      "input": "Find evidence from 4 different websites for this claim: 'Urban tree cover can lower neighborhood surface temperatures during heat waves.' Return the most relevant passages, but use search snippets only and do not extract full pages.",
+      "expect": {
+        "tool_calls": [
+          {
+            "name": "evidence_finder",
+            "args": {
+              "claim": "Urban tree cover can lower neighborhood surface temperatures during heat waves.",
+              "max_sources": 4,
+              "deep_read": false
+            }
+          }
+        ]
+      },
+      "result": {
+        "passed": false,
+        "routing_correct": true,
+        "args_correct": false,
+        "actual_tool_calls": [
+          {
+            "name": "evidence_finder",
+            "args": {
+              "claim": "Urban tree cover can lower neighborhood surface temperatures during heat waves.",
+              "deep_read": true,
+              "max_sources": 4
+            }
+          }
+        ],
+        "actual_text": "",
+        "case_failure_type": "wrong_arg_value",
+        "observed_mismatch": "wrong_arg_value",
+        "failure_type": "wrong_arg_value",
+        "failures": [
+          "deep_read: expected False, got True"
+        ]
+      },
+      "tool_results": [
+        {
+          "tool": "evidence_finder",
+          "args": {
+            "claim": "Urban tree cover can lower neighborhood surface temperatures during heat waves.",
+            "deep_read": true,
+            "max_sources": 4
+          },
+          "result": {
+            "tool": "evidence_finder",
+            "claim": "Urban tree cover can lower neighborhood surface temperatures during heat waves.",
+            "items": [
+              {
+                "title": "Trees halve urban heat island effect globally but unequal benefits only modestly mitigate climate-change warming | Nature Communications",
+                "url": "https://www.nature.com/articles/s41467-026-71825-x",
+                "source": "nature.com",
+                "summary": "Scale-dependent interactions between tree canopy cover and impervious surfaces reduce daytime urban heat during summer.",
+                "relevance_score": 0.5,
+                "extraction_provider": "firecrawl"
+              },
+              {
+                "title": "Cooling Potential of Urban Trees | World Resources Institute",
+                "url": "https://www.wri.org/insights/urban-trees-cooling-potential",
+                "source": "wri.org",
+                "summary": "A [2023 modeling study](https://www.thelancet.com/journals/lancet/article/PIIS0140-6736%2822%2902585-5/fulltext) found that almost 40% of the 6,700 deaths attributable to urban heat in Europe in 2015 could have been prevented if cities increased tree cover to 30% of their land area.",
+                "relevance_score": 0.4,
+                "extraction_provider": "firecrawl"
+              },
+              {
+                "title": "First in Science: City Trees Can Reduce Urban Heat Island Effect | National Caucus of Environmental Legislators",
+                "url": "http://ncelenviro.org/articles/first-in-science-city-trees-can-reduce-urban-heat-island-effect",
+                "source": "ncelenviro.org",
+                "summary": "The urban heat island effect is well documented and increasing green spaces and tree cover can help to mitigate those impacts.",
+                "relevance_score": 0.4,
+                "extraction_provider": "firecrawl"
+              },
+              {
+                "title": "Urban ‘heat islands’ would be twice as hot without city trees",
+                "url": "https://www.nature.org/en-us/newsroom/urban-heat-islands-twice-as-hot-without-city-trees",
+                "source": "nature.org",
+                "summary": "Led by The Nature Conservancy (TNC) and published in _Nature Communications_, the paper pools data from nearly 9,000 large cities worldwide – collectively home to ~3.6 billion people – to find that tree cover currently mitigates nearly half (~48.6%) of the UHI effect that occurs when man-made surfaces like roads, buildings and car parks absorb and release heat from the sun, causing urban areas to heat up more than su",
+                "relevance_score": 0.4,
+                "extraction_provider": "firecrawl"
+              }
+            ],
+            "distinct_domains": 4,
+            "status": "ok",
+            "warnings": [],
+            "assessment": "requires_review",
+            "note": "Keyword overlap measures relevance, NOT whether the claim is true."
+          }
+        }
+      ]
+    },
+    {
+      "id": "G03_source_deduplicator_local",
+      "phase": "B",
+      "suite": "group",
+      "case_suite": "group",
+      "is_multiturn": false,
+      "metadata": {
+        "what_it_tests": "Routes an already-collected source list to source_deduplicator and respects the user's explicit no-extraction/no-credit boundary. The evaluator checks verify_content but cannot compare the items array of objects."
+      },
+      "input": "Remove duplicate sources from this list before I prepare the report. Use only local URL and title comparison; do not fetch page contents or call extraction APIs. Results: (1) title 'Climate report 2026', URL https://example.com/climate-report?utm_source=mail; (2) title 'Climate report 2026', URL https://www.example.com/climate-report; (3) title 'Battery recycling policy', URL https://example.org/battery-policy.",
+      "expect": {
+        "tool_calls": [
+          {
+            "name": "source_deduplicator",
+            "args": {}
+          }
+        ]
+      },
+      "result": {
+        "passed": true,
+        "routing_correct": true,
+        "args_correct": true,
+        "actual_tool_calls": [
+          {
+            "name": "source_deduplicator",
+            "args": {
+              "items": [
+                {
+                  "required": [
+                    "url"
+                  ],
+                  "title": "Climate report 2026",
+                  "url": "https://example.com/climate-report?utm_source=mail"
+                },
+                {
+                  "required": [
+                    "url"
+                  ],
+                  "title": "Climate report 2026",
+                  "url": "https://www.example.com/climate-report"
+                },
+                {
+                  "required": [
+                    "url"
+                  ],
+                  "title": "Battery recycling policy",
+                  "url": "https://example.org/battery-policy"
+                }
+              ]
+            }
+          }
+        ],
+        "actual_text": "",
+        "case_failure_type": "wrong_boundary",
+        "observed_mismatch": null,
+        "failure_type": null,
+        "failures": []
+      },
+      "tool_results": [
+        {
+          "tool": "source_deduplicator",
+          "args": {
+            "items": [
+              {
+                "required": [
+                  "url"
+                ],
+                "title": "Climate report 2026",
+                "url": "https://example.com/climate-report?utm_source=mail"
+              },
+              {
+                "required": [
+                  "url"
+                ],
+                "title": "Climate report 2026",
+                "url": "https://www.example.com/climate-report"
+              },
+              {
+                "required": [
+                  "url"
+                ],
+                "title": "Battery recycling policy",
+                "url": "https://example.org/battery-policy"
+              }
+            ]
+          },
+          "result": {
+            "tool": "source_deduplicator",
+            "items": [
+              {
+                "required": [
+                  "url"
+                ],
+                "title": "Climate report 2026",
+                "url": "https://example.com/climate-report?utm_source=mail"
+              },
+              {
+                "required": [
+                  "url"
+                ],
+                "title": "Battery recycling policy",
+                "url": "https://example.org/battery-policy"
+              }
+            ],
+            "removed": 1,
+            "checked": 3,
+            "verification": "local"
+          }
+        }
+      ]
+    },
+    {
+      "id": "G04_format_existing_sources_brief",
+      "phase": "B",
+      "suite": "group",
+      "case_suite": "group",
+      "is_multiturn": false,
+      "metadata": {
+        "what_it_tests": "Uses the local formatter on information already supplied by the user, choosing the brief template and preserving the requested headline instead of searching again."
+      },
+      "input": "Turn these already-collected notes into a concise research brief titled 'AI Governance Brief'. Do not search for more information. Sources: (1) 'EU adopts new AI Act rules', https://example.com/ai-act, summary: 'The report describes obligations under the AI Act.' (2) 'New AI rules for providers', https://example.org/ai-rules, summary: 'The article explains compliance duties for providers.' (3) 'Research labs update safety practices', https://example.net/ai-safety, summary: 'The article describes updated safety processes.'",
+      "expect": {
+        "tool_calls": [
+          {
+            "name": "format",
+            "args": {
+              "template": "brief",
+              "headline": "AI Governance Brief"
+            }
+          }
+        ]
+      },
+      "result": {
+        "passed": false,
+        "routing_correct": true,
+        "args_correct": false,
+        "actual_tool_calls": [
+          {
+            "name": "format",
+            "args": {
+              "template": "research brief",
+              "items": [
+                {
+                  "summary": "The report describes obligations under the AI Act and compliance duties for providers.",
+                  "title": "AI Governance Brief"
+                }
+              ]
+            }
+          }
+        ],
+        "actual_text": "",
+        "case_failure_type": "wrong_tool",
+        "observed_mismatch": "wrong_arg_value",
+        "failure_type": "wrong_tool",
+        "failures": [
+          "template: expected 'brief', got 'research brief'",
+          "headline: expected 'AI Governance Brief', got None"
+        ]
+      },
+      "tool_results": [
+        {
+          "tool": "format",
+          "args": {
+            "template": "research brief",
+            "items": [
+              {
+                "summary": "The report describes obligations under the AI Act and compliance duties for providers.",
+                "title": "AI Governance Brief"
+              }
+            ]
+          },
+          "result": {
+            "tool": "render_digest",
+            "template": "research brief",
+            "markdown": "## Tổng hợp\n- The report describes obligations under the AI Act and compliance duties for providers. - \n",
+            "item_count": 1
+          }
+        }
+      ]
+    },
+    {
+      "id": "G05_rss_feed_reader_direct",
+      "phase": "B",
+      "suite": "group",
+      "case_suite": "group",
+      "is_multiturn": false,
+      "metadata": {
+        "what_it_tests": "Routes a direct RSS feed URL request to rss_feed_reader instead of fetch or lookup, preserving url, max_items, and optional keyword filter."
+      },
+      "input": "Read the latest 4 articles from the RSS feed at https://openai.com/news/rss.xml, filtering only items mentioning 'safety'. Read the RSS XML feed directly instead of running a general web search or HTML page scrape.",
+      "expect": {
+        "tool_calls": [
+          {
+            "name": "rss_feed_reader",
+            "args": {
+              "url": "https://openai.com/news/rss.xml",
+              "max_items": 4,
+              "keyword": "safety"
+            }
+          }
+        ]
+      },
+      "result": {
+        "passed": true,
+        "routing_correct": true,
+        "args_correct": true,
+        "actual_tool_calls": [
+          {
+            "name": "rss_feed_reader",
+            "args": {
+              "keyword": "safety",
+              "max_items": 4,
+              "url": "https://openai.com/news/rss.xml"
+            }
+          }
+        ],
+        "actual_text": "",
+        "case_failure_type": "wrong_tool",
+        "observed_mismatch": null,
+        "failure_type": null,
+        "failures": []
+      },
+      "tool_results": [
+        {
+          "tool": "rss_feed_reader",
+          "args": {
+            "keyword": "safety",
+            "max_items": 4,
+            "url": "https://openai.com/news/rss.xml"
+          },
+          "result": {
+            "tool": "rss_feed_reader",
+            "status": "ok",
+            "feed_url": "https://openai.com/news/rss.xml",
+            "feed_title": "OpenAI News",
+            "feed_type": "rss",
+            "count": 4,
+            "items": [
+              {
+                "title": "Control Room: A central system to track and stop model workloads across our research infrastructure",
+                "url": "https://openai.com/index/control-room",
+                "source": "openai.com",
+                "published": "Mon, 09 Nov 2026 13:00:00 GMT",
+                "summary": "Learn how OpenAI’s Control Room tracks model workloads across our research infrastructure and can rapidly stop them when safety or security concerns arise."
+              },
+              {
+                "title": "Community safety report and new protections for teens",
+                "url": "https://openai.com/index/community-safety-report-and-new-protections-for-teens",
+                "source": "openai.com",
+                "published": "Fri, 30 Oct 2026 09:00:00 GMT",
+                "summary": "OpenAI is strengthening violence prevention in ChatGPT with expanded safeguards, earlier interventions, and a new commitment to public safety reporting."
+              },
+              {
+                "title": "OpenAI and Poland’s NASK partner to advance AI safety and security",
+                "url": "https://openai.com/index/openai-nask-ai-safety-security-partnership",
+                "source": "openai.com",
+                "published": "Fri, 23 Oct 2026 00:00:00 GMT",
+                "summary": "OpenAI and Poland’s NASK are partnering on AI safety, security, and technical research to strengthen safeguards and support a more resilient digital ecosystem."
+              },
+              {
+                "title": "Towards safety cases for frontier AI training",
+                "url": "https://openai.com/index/towards-safety-cases-for-frontier-ai-training",
+                "source": "openai.com",
+                "published": "Mon, 28 Sep 2026 19:00:00 GMT",
+                "summary": "Our early guidelines for safety cases in frontier AI training cover technical safeguards, operational practices, and investigating misalignment incidents"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "GM01_source_deduplicator_local_followup",
+      "phase": "B",
+      "suite": "group",
+      "case_suite": "group",
+      "is_multiturn": true,
+      "metadata": {
+        "what_it_tests": "Tests multi-turn retention of the supplied result list and obeying a follow-up restriction against paid content extraction. The evaluator checks verify_content but cannot compare the items array of objects."
+      },
+      "input": [
+        {
+          "role": "user",
+          "content": "I collected these results. Please remove duplicates: (1) title 'Climate report 2026', URL https://example.com/climate-report?utm_source=mail; (2) title 'Climate report 2026', URL https://www.example.com/climate-report; (3) title 'Battery recycling policy', URL https://example.org/battery-policy."
+        },
+        {
+          "role": "user",
+          "content": "Use only local URL/title comparison. Do not read page contents or call any extraction API."
+        }
+      ],
+      "expect": {
+        "tool_calls": [
+          {
+            "name": "source_deduplicator",
+            "args": {
+              "verify_content": false
+            }
+          }
+        ]
+      },
+      "result": {
+        "passed": false,
+        "routing_correct": false,
+        "args_correct": false,
+        "actual_tool_calls": [
+          {
+            "name": "policy",
+            "args": {
+              "url": "https://example.org/battery-policy"
+            }
+          }
+        ],
+        "actual_text": "",
+        "case_failure_type": "wrong_boundary",
+        "observed_mismatch": "missing_tool_call",
+        "failure_type": "wrong_boundary",
+        "failures": [
+          "missing tool call source_deduplicator",
+          "extra tool call policy"
+        ]
+      },
+      "tool_results": [
+        {
+          "tool": "policy",
+          "args": {
+            "url": "https://example.org/battery-policy"
+          },
+          "result": {
+            "error": "TypeError",
+            "message": "search_company_policy() got an unexpected keyword argument 'url'"
+          }
+        }
+      ]
+    },
+    {
+      "id": "GM02_topic_radar_carryover_weekly",
+      "phase": "B",
+      "suite": "group",
+      "case_suite": "group",
+      "is_multiturn": true,
+      "metadata": {
+        "what_it_tests": "Tests carrying the original topic into a follow-up while applying the requested timeframe, result limit, and no-enrichment setting."
+      },
+      "input": [
+        {
+          "role": "user",
+          "content": "Compare news coverage and discussion on X about robotics."
+        },
+        {
+          "role": "user",
+          "content": "Use the last week, return 3 examples from each source, and do not enrich or scrape article pages."
+        }
+      ],
+      "expect": {
+        "tool_calls": [
+          {
+            "name": "topic_radar",
+            "args": {
+              "query": "robotics",
+              "timeframe": "week",
+              "limit": 3,
+              "include_social": true,
+              "enrich_articles": false
+            }
+          }
+        ]
+      },
+      "result": {
+        "passed": false,
+        "routing_correct": true,
+        "args_correct": false,
+        "actual_tool_calls": [
+          {
+            "name": "topic_radar",
+            "args": {
+              "query": "tìm tweet về AI"
+            }
+          }
+        ],
+        "actual_text": "",
+        "case_failure_type": "wrong_arg_value",
+        "observed_mismatch": "wrong_arg_value",
+        "failure_type": "wrong_arg_value",
+        "failures": [
+          "query: expected 'robotics', got 'tìm tweet về AI'",
+          "timeframe: expected 'week', got None",
+          "limit: expected 3, got None",
+          "include_social: expected True, got None",
+          "enrich_articles: expected False, got None"
+        ]
+      },
+      "tool_results": [
+        {
+          "tool": "topic_radar",
+          "args": {
+            "query": "tìm tweet về AI"
+          },
+          "result": {
+            "tool": "topic_radar",
+            "query": "tìm tweet về AI",
+            "timeframe": "week",
+            "items": [
+              {
+                "title": "X (Twitter) cho Android - Tải về",
+                "url": "https://twitter.vi.softonic.com/android",
+                "source": "twitter.vi.softonic.com",
+                "summary": "Trong phần này, bạn sẽ tìm thấy một tổng quan rõ ràng và đơn giản về các loại quyền mà ứng dụng sử dụng, được nhóm theo mức độ nhạy cảm, cùng với một phn bố trực quan giúp bạn hiểu chúng ngay từ cái nhìn đầu tiên. Bằng cách này, bạn có thể thấy cách ứng dụng tương tác với thiết bị của mình và quyết định tải xuống một cách tự tin. [...] Khi bạn mở ứng dụng, có ba màn hình để vuốt giữa. Đầu tiên là nguồn cấp dữ liệu của bạn, bao gồm các tweet của những người bạn theo dõi, cũng như 'tweet được quảng cáo' không thường xuyên. Ngoài ra còn có các tweet được đề xuất bởi Twitter dựa trên những người bạn theo dõi.\n\nVuốt sang trái để xem tab Khám phá . Tại đy bạn có thể thấy xu hướng hiện tại (bạn có thể đặt theo vị trí), tweet phổ biến và các tweet và đề xuất để người dùng theo dõi. [...] Người dùng mới sẽ nhận được những người được đề xuất theo dõi, chủ yếu là thương hiệu và người nổi tiếng. Chúng tôi sẽ cảnh báo chống lại điều này, và thay vào đó cố gắng tìm bạn bè và những người mà bạn chia sẻ sở thích để bạn có thể tham gia vào các cuộc hội thoại dễ dàng hơn. Twitter là một dịch vụ có thể gy khó khăn cho những người mới đến, và điều này không được giúp bởi thực tế mọi người sử dụng nó v",
+                "date": "Sun, 08 Nov 2026 03:00:00 GMT",
+                "section": "news",
+                "provider": "tavily"
+              },
+              {
+                "title": "Những bạn hay xài Twitter có để ý càng ngày app ...",
+                "url": "https://www.facebook.com/oCuaLD/posts/nh%E1%BB%AFng-b%E1%BA%A1n-hay-x%C3%A0i-twitter-c%C3%B3-%C4%91%E1%BB%83-%C3%BD-c%C3%A0ng-ng%C3%A0y-app-c%C3%A0ng-kh%C3%B4ng-an-to%C3%A0n-kh%C3%B4ng-m%C3%ACnh-c%C3%B3/1903871055113974",
+                "source": "facebook.com",
+                "summary": "Lí do ban acc rất củ chuối, với cả ai chưa thêm sdt vào acc twitter hay retweet acc chính từ acc clone hoặc xài nhiều hashtag trong 1 bài sẽ bay acc hay sao ấy.",
+                "date": null,
+                "section": "news",
+                "provider": "tavily"
+              },
+              {
+                "title": "Že minulý týden skončilo páté plénum ÚV KSČ, to už víte. Minule jsem se věnoval obecnému směřování. Dnes bych ",
+                "summary": "Že minulý týden skončilo páté plénum ÚV KSČ, to už víte. Minule jsem se věnoval obecnému směřování. Dnes bych se ale chtěl věnovat něčemu konkrétnějšímu (stranickým buňkám ve firmách). Předem ale drobné vysvětlení. Každé plénum se věnuje určité oblasti. Páté plénum obvykle schvaluje pětiletku, jenže kvůli zpoždění 3. pléna byla schválena už loni na 4. plénu a letošní plénum se tak věnovalo tématu, kterému se věnuje typicky šesté plénum: budování strany. I proto byl minulý tweet věnován tomu.\nJedním z klíčových výstupů tohoto pléna byly stranické organizace (buňky) ve firmách. Dle usnesení dochází k rozšíření vlivu strany na rozhodování firem. Ovšem bez znalosti kontextu bychom mohli nabýt zkresleného dojmu, že se něco zásadně mění. Přesto to dokonale odráží to, o čem jsme hovořili minule: větší centralizaci a kontrolu. A je potřeba si pokládat otázky (a netýká se to jen investorů), jak t",
+                "url": "https://x.com/kweenolog/status/2117959452200493314",
+                "source": "x.com",
+                "section": "social",
+                "provider": "rapidapi",
+                "date": "Wed Nov 04 12:37:37 +0000 2026",
+                "metrics": {
+                  "likes": 35,
+                  "retweets": 1
+                }
+              },
+              {
+                "title": "Có một hiện tượng rất tế nhị:\n\nBạn tắt A, nhưng không lâu sau, đồng loại của A là B, C, D lại lục tục xuất hiệ",
+                "summary": "Có một hiện tượng rất tế nhị:\n\nBạn tắt A, nhưng không lâu sau, đồng loại của A là B, C, D lại lục tục xuất hiện trong dòng thời gian của bạn.\n\nĐây không phải là ngẫu nhiên, mà là hệ thống giới thiệu làm một lần \"kế thừa sở thích\" trên người bạn.\n\nNó không nhìn bạn có nhấn hay không chú ý, nó nhìn quỹ đạo bạn dừng lại, tương tác và lặp đi lặp lại.\n\nKhu bình luận liên quan đến X, thật ra là một nơi rất thành thật.\n\nAi đang lén lút đóng cửa, ai lại xuất hiện nhiều lần trong nội dung đồng loại, thuật toán đều nhớ rất rõ ràng.\n\nBạn nghĩ rằng bạn đang lựa chọn,\n\nThực ra là đang cho mô hình ăn nhãn.\n\nNgười thích lén lút hủy bỏ sự chú ý, thường thường không phải thật sự không có hứng thú,\n\nChỉ là không muốn mối quan hệ trở nên quá rõ ràng.\n\nNhưng thuật toán không quan tâm đến trạng thái tập trung của bạn.\n\nNó chỉ nhìn vào dữ liệu hành vi: ở lại, bình luận, tweet lại, tiếp xúc lặp đi lặp lại.\n\nCh",
+                "url": "https://x.com/0x04516662556/status/2109502843476664443",
+                "source": "x.com",
+                "section": "social",
+                "provider": "rapidapi",
+                "date": "Mon Oct 12 04:34:05 +0000 2026",
+                "metrics": {
+                  "likes": 2,
+                  "retweets": 1
+                }
+              },
+              {
+                "title": "Bạn đang nhìn thấy rất đúng bản chất của thuật toán X hiện tại: **\"View bình luận là view mượn, view timeline ",
+                "summary": "Bạn đang nhìn thấy rất đúng bản chất của thuật toán X hiện tại: **\"View bình luận là view mượn, view timeline mới là tài sản của bạn.\"**\n\nCon số 500–600 cmt/ngày mang về 28k view nhưng timeline chỉ có 1k2 là chỉ báo rõ ràng của hiện tượng **\"nông dân cày view\"** (engagement farming) bị kiệt sức mà không tích lũy được giá trị thương hiệu cá nhân:\n\n1. **Người đọc cmt của bạn chỉ nhìn bạn như một người bình luận dạo**, đọc lướt qua rồi thôi, không có lý do gì để click vào profile xem bạn là ai.\n2. **Thuật toán phạt spam ngầm (Soft shadowban/Throttle):** Đi cmt 500-600 lần/ngày khiến hệ thống đánh dấu tài khoản có hành vi giống bot, làm giảm tỷ lệ phân phối bài viết chính (root post) lên tab *For You* của người khác.\n\nĐể chuyển đổi từ \"view rác/view mượn\" sang \"view gốc\" bền vững, bạn nên cơ cấu lại chiến lược theo 3 trụ cột sau:\n\n---\n\n### 1. Áp dụng quy tắc tỷ lệ 80/20 (Giảm số lượng, tăng ",
+                "url": "https://x.com/Bonjour_fren/status/2104523802755604611",
+                "source": "x.com",
+                "section": "social",
+                "provider": "rapidapi",
+                "date": "Mon Sep 28 10:49:09 +0000 2026",
+                "metrics": {
+                  "likes": 2,
+                  "retweets": 1
+                }
+              },
+              {
+                "title": "✅Nhìn timeline toàn người khoe “#X Pay vào tài khoản rồi”, mình ngồi đó, vừa ghen vừa tự hỏi mình đang làm cái",
+                "summary": "✅Nhìn timeline toàn người khoe “#X Pay vào tài khoản rồi”, mình ngồi đó, vừa ghen vừa tự hỏi mình đang làm cái gì với cuộc đời. \n\n Viết hoài. Viết linh tinh. Viết xong đăng lên, được vài like cho có lệ, rồi chìm. Không kiếm được đồng nào, cũng chẳng để lại gì ngoài cảm giác mình đang gõ cho đỡ trống trải. Cứ như đang đứng ngoài cửa kính nhìn người ta ăn, miệng thèm, tay thì chỉ biết gõ thêm một bài nhảm nữa.  \n\nCó lúc nghĩ: hay mình bỏ hết cái trò viết ngắn, viết trend, viết cho xong này. Chuyển sang viết tiểu thuyết. Ngồi thật, viết thật, xây nhân vật, xây thế giới, viết cái gì đó dài hơi, không phải chạy theo thuật toán mỗi ngày. Nghe thì hay. Nghe thì “đàng hoàng” hơn. Nhưng trong đầu lại có thằng kia thì thầm: tiểu thuyết thì ai đọc? Viết xong để ngăn kéo à? Rồi lại đói. \n\n Sự thật khó chịu là mình không ghét viết. Mình ghét viết mà không biết viết để làm gì. Ghét cái cảm giác mỗi bà",
+                "url": "https://x.com/Octieu3838/status/2104377192138592383",
+                "source": "x.com",
+                "section": "social",
+                "provider": "rapidapi",
+                "date": "Mon Sep 28 01:06:34 +0000 2026",
+                "metrics": {
+                  "likes": 9,
+                  "retweets": 0
+                }
+              },
+              {
+                "title": "Tương tác trên X\nBạn để ý đi đa phần dân mà chuyên share \" lời hay ý đẹp \" hay chơi game bạt mạng trên mạng ..",
+                "summary": "Tương tác trên X\nBạn để ý đi đa phần dân mà chuyên share \" lời hay ý đẹp \" hay chơi game bạt mạng trên mạng ...Thì y như rằng, nếu họ mà đọc được tweet nào của bạn nói về vấn đề có vẽ cao siêu hay hot thời sự.  Nhất định theo thói quen chôm nguồn họ đều thận trọng muốn lấy ngay gốc tích . Nhưng tiếc rằng thói quen trên, biến dạng thành câu com. khệnh khạng kiểu \"tao đây là đại diện cho chuyện factcheck\"  họ hỏi ngay bằng giọng xách mé ra lệnh \"Link đâu , nguồn chỗ nào ..\" Thay vì tế nhị nên hỏi tác giả stt đó bằng giọng chân thành để mình có nguồn tìm hiểu ..hầu ..share .\n\nHọ là ai.  X giao cho họ nhiệm vụ factcheck hay sao mà mình phải có bổn phận trả lời cho cái yêu cầu giống ông bà Nội Ngoại của mình vậy? \n\nVào một  trang nhà nào đó trong X , mà bạn đọc thấy lời phê bình nào khệnh khạng sửa cách dùng chữ, phải dùng như vầy mới hợp , dùng chữ như kia là văn phong của VC( Dù không có tự",
+                "url": "https://x.com/admvhv/status/2099376788514521232",
+                "source": "x.com",
+                "section": "social",
+                "provider": "rapidapi",
+                "date": "Mon Sep 14 05:56:45 +0000 2026",
+                "metrics": {
+                  "likes": 11,
+                  "retweets": 0
+                }
+              }
+            ],
+            "signals": {
+              "news_results": 2,
+              "news_domains": 2,
+              "x_post_results": 5,
+              "shared_terms": [
+                "ai",
+                "au",
+                "ay",
+                "ba",
+                "bai",
+                "bang",
+                "bi",
+                "bien",
+                "bo",
+                "ca",
+                "cach",
+                "cai",
+                "cam",
+                "cao",
+                "chinh"
+              ]
+            },
+            "status": "ok",
+            "warnings": [],
+            "note": "These are small API samples; counts and overlap are not proof of popularity or truth."
+          }
+        }
+      ]
+    },
+    {
+      "id": "GM03_evidence_finder_carryover_claim",
+      "phase": "B",
+      "suite": "group",
+      "case_suite": "group",
+      "is_multiturn": true,
+      "metadata": {
+        "what_it_tests": "Tests retention of the claim across turns and application of the follow-up source-count and shallow-read constraints."
+      },
+      "input": [
+        {
+          "role": "user",
+          "content": "Find relevant evidence for this claim: Remote work can reduce commuter traffic congestion."
+        },
+        {
+          "role": "user",
+          "content": "Use up to 5 distinct websites, and use search snippets only rather than extracting full pages."
+        }
+      ],
+      "expect": {
+        "tool_calls": [
+          {
+            "name": "evidence_finder",
+            "args": {
+              "claim": "Remote work can reduce commuter traffic congestion.",
+              "max_sources": 5,
+              "deep_read": false
+            }
+          }
+        ]
+      },
+      "result": {
+        "passed": false,
+        "routing_correct": true,
+        "args_correct": false,
+        "actual_tool_calls": [
+          {
+            "name": "evidence_finder",
+            "args": {
+              "claim": "Remote work can reduce commuter traffic congestion",
+              "deep_read": true,
+              "max_sources": 5
+            }
+          }
+        ],
+        "actual_text": "",
+        "case_failure_type": "wrong_arg_value",
+        "observed_mismatch": "wrong_arg_value",
+        "failure_type": "wrong_arg_value",
+        "failures": [
+          "claim: expected 'Remote work can reduce commuter traffic congestion.', got 'Remote work can reduce commuter traffic congestion'",
+          "deep_read: expected False, got True"
+        ]
+      },
+      "tool_results": [
+        {
+          "tool": "evidence_finder",
+          "args": {
+            "claim": "Remote work can reduce commuter traffic congestion",
+            "deep_read": true,
+            "max_sources": 5
+          },
+          "result": {
+            "tool": "evidence_finder",
+            "claim": "Remote work can reduce commuter traffic congestion",
+            "items": [
+              {
+                "title": "Telecommuting can reduce congestion, but might create other traffic problems",
+                "url": "https://theconversation.com/telecommuting-can-reduce-congestion-but-might-create-other-traffic-problems-164212",
+                "source": "theconversation.com",
+                "summary": "Telecommuting has the potential to reduce traffic congestion, but other factors, such as increasing the distance between home and work or adding new trips, can contribute to producing more congestion.",
+                "relevance_score": 0.667,
+                "extraction_provider": "firecrawl"
+              },
+              {
+                "title": "Telework-induced urban sprawl and traffic congestion: a social discount rate analysis | European Transport Research Review | Springer Nature Link",
+                "url": "https://link.springer.com/article/10.1186/s12544-025-00730-z",
+                "source": "link.springer.com",
+                "summary": "Following the reopening phase of the pandemic and easing mobility restrictions, traffic congestion returned to pre-pandemic levels despite the implementation of remote or hybrid work schedules.",
+                "relevance_score": 0.667,
+                "extraction_provider": "firecrawl"
+              },
+              {
+                "title": "Can Working and Shopping from Home Really Reduce Traffic Congestion?",
+                "url": "https://blogs.dal.ca/openthink/can-working-and-shopping-from-home-really-reduce-traffic-congestion",
+                "source": "blogs.dal.ca",
+                "summary": "- [Skip to primary navigation](https://blogs.dal.ca/openthink/can-working-and-shopping-from-home-really-reduce-traffic-congestion/#genesis-nav-primary)",
+                "relevance_score": 0.5,
+                "extraction_provider": "firecrawl"
+              },
+              {
+                "title": "Remote Work Integration - SustainCommute",
+                "url": "https://www.sustaincommute.com/remote-work.html",
+                "source": "sustaincommute.com",
+                "summary": "Even partial remote work—working from home one or two days per week—can reduce commuting carbon footprint by 20-40%, while full-time remote work eliminates commute emissions completely.",
+                "relevance_score": 0.5,
+                "extraction_provider": "firecrawl"
+              },
+              {
+                "title": "Impact of flexible working on traffic congestion in extreme weather conditions: Empirical evidence from a natural experiment",
+                "url": "https://www.sciencedirect.com/science/article/abs/pii/S2214140524001385",
+                "source": "sciencedirect.com",
+                "summary": "Traffic congestion can have [detrimental effects](https://www.sciencedirect.com/topics/engineering/detrimental-effect) on commuters’ work-life balance, leading to increased stress levels at both work and home.",
+                "relevance_score": 0.5,
+                "extraction_provider": "firecrawl"
+              }
+            ],
+            "distinct_domains": 5,
+            "status": "ok",
+            "warnings": [],
+            "assessment": "requires_review",
+            "note": "Keyword overlap measures relevance, NOT whether the claim is true."
+          }
+        }
+      ]
+    },
+    {
+      "id": "GM04_format_bullets_followup",
+      "phase": "B",
+      "suite": "group",
+      "case_suite": "group",
+      "is_multiturn": true,
+      "metadata": {
+        "what_it_tests": "Tests retaining user-provided source material and selecting the bullets formatter with the follow-up headline, without performing another search."
+      },
+      "input": [
+        {
+          "role": "user",
+          "content": "I already collected these sources for my report: (1) title 'AI safety evaluation update', URL https://example.com/safety, summary 'New evaluation methods are discussed.'; (2) title 'Model governance overview', URL https://example.org/governance, summary 'The source explains governance controls.'"
+        },
+        {
+          "role": "user",
+          "content": "Format those notes as bullet points under the headline 'AI Research Source Notes'. Do not run another search."
+        }
+      ],
+      "expect": {
+        "tool_calls": [
+          {
+            "name": "format",
+            "args": {
+              "template": "bullets",
+              "headline": "AI Research Source Notes"
+            }
+          }
+        ]
+      },
+      "result": {
+        "passed": false,
+        "routing_correct": true,
+        "args_correct": false,
+        "actual_tool_calls": [
+          {
+            "name": "format",
+            "args": {
+              "query": "Format those notes as bullet points under the headline 'AI Research Source Notes'. Do not run another search."
+            }
+          }
+        ],
+        "actual_text": "",
+        "case_failure_type": "wrong_tool",
+        "observed_mismatch": "wrong_arg_value",
+        "failure_type": "wrong_tool",
+        "failures": [
+          "template: expected 'bullets', got None",
+          "headline: expected 'AI Research Source Notes', got None"
+        ]
+      },
+      "tool_results": [
+        {
+          "tool": "format",
+          "args": {
+            "query": "Format those notes as bullet points under the headline 'AI Research Source Notes'. Do not run another search."
+          },
+          "result": {
+            "error": "TypeError",
+            "message": "render_digest() got an unexpected keyword argument 'query'"
+          }
+        }
+      ]
+    },
+    {
+      "id": "GM05_paper_text_page_limit_correction",
+      "phase": "B",
+      "suite": "group",
+      "case_suite": "group",
+      "is_multiturn": true,
+      "metadata": {
+        "what_it_tests": "Tests retaining the arXiv identifier and applying a page-limit correction from the latest turn."
+      },
+      "input": [
+        {
+          "role": "user",
+          "content": "Please extract the text from arXiv paper 2307.09288."
+        },
+        {
+          "role": "user",
+          "content": "Only extract the first 3 pages."
+        }
+      ],
+      "expect": {
+        "tool_calls": [
+          {
+            "name": "paper_text",
+            "args": {
+              "arxiv_url": "2307.09288",
+              "max_pages": 3
+            }
+          }
+        ]
+      },
+      "result": {
+        "passed": true,
+        "routing_correct": true,
+        "args_correct": true,
+        "actual_tool_calls": [
+          {
+            "name": "paper_text",
+            "args": {
+              "arxiv_url": "2307.09288",
+              "max_pages": 3
+            }
+          }
+        ],
+        "actual_text": "",
+        "case_failure_type": "wrong_arg_value",
+        "observed_mismatch": null,
+        "failure_type": null,
+        "failures": []
+      },
+      "tool_results": [
+        {
+          "tool": "paper_text",
+          "args": {
+            "arxiv_url": "2307.09288",
+            "max_pages": 3
+          },
+          "result": {
+            "tool": "get_arxiv_paper_text",
+            "arxiv_id": "2307.09288",
+            "url": "https://arxiv.org/abs/2307.09288",
+            "pdf_url": "https://arxiv.org/pdf/2307.09288.pdf",
+            "pdf_path": "D:\\VinUniLab\\K5-L3B-DAY03-NhomBaKhi-ResearchAgentToolEval\\starter_v0\\arxiv_papers\\2307.09288.pdf",
+            "txt_path": "D:\\VinUniLab\\K5-L3B-DAY03-NhomBaKhi-ResearchAgentToolEval\\starter_v0\\arxiv_papers\\2307.09288.txt",
+            "page_count": 77,
+            "pages_read": 3,
+            "chars_returned": 8000,
+            "items": [
+              {
+                "title": "arXiv paper 2307.09288",
+                "url": "https://arxiv.org/abs/2307.09288",
+                "source": "arxiv.org",
+                "summary": "Llama 2: Open Foundation and Fine-Tuned Chat Models\nHugo Touvron∗ Louis Martin† Kevin Stone†\nPeter Albert Amjad Almahairi Yasmine Babaei Nikolay Bashlykov Soumya Batra\nPrajjwal Bhargava Shruti Bhosale Dan Bikel Lukas Blecher Cristian Canton Ferrer Moya Chen\nGuillem Cucurull David Esiobu Jude Fernandes Jeremy Fu Wenyin Fu Brian Fuller\nCynthia Gao Vedanuj Goswami Naman Goyal Anthony Hartshorn Saghar Hosseini Rui Hou\nHakan Inan Marcin Kardas Viktor Kerkez Madian Khabsa Isabel Kloumann Artem Korenev\nPunit Singh Koura Marie-Anne Lachaux Thibaut Lavril Jenya Lee Diana Liskovich\nYinghai Lu Yuning Mao Xavier Martinet Todor Mihaylov Pushkar Mishra\nIgor Molybog Yixin Nie Andrew Poulton Jeremy Reizenstein Rashi Rungta Kalyan Saladi\nAlan Schelten Ruan Silva Eric Michael Smith Ranjan Subramanian Xiaoqing Ellen Tan Binh Tang\nRoss Taylor Adina Williams Jian Xiang Kuan Puxin Xu Zheng Yan Iliyan Zarov Yuchen Zhang\nAngela Fan Melanie Kambadur Sharan Narang Aurelien Rodriguez Robert Stojnic\nSergey Edunov Thomas Scialom∗\nGenAI, Meta\nAbstract\nIn this work, we develop and release Llama 2, a collection of pretrained and fine-tuned\nlarge language models (LLMs) ranging in scale from 7 billion to 70 billion parameters.\nOur fine-tuned LLMs, calledLlama 2-Chat, are optimized for dialogue use cases. Our\nmodels outperform open-source chat models on most benchmarks we tested, and based on\nour human evaluations for helpfulness and safety, may be a suitable substitute for closed-\nsource models. We provide a detailed description of our approach to fine-tuning and safety\nimprovements ofLlama 2-Chat in order to enable the community to build on our work and\ncontribute to the responsible development of LLMs.\n∗Equal contribution, corresponding authors: {tscialom, htouvron}@meta.com\n†Second author\nContributions for all the authors can be found in Section A.1.\narXiv:2307.09288v2  [cs.CL]  19 Jul 2023\n\nContents\n1 Introduction 3\n2 Pretraining 5\n2.1 Pretraining Data . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 5\n2.2 Training Details . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 5\n2.3 Llama 2 Pretrained Model Evaluation . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 7\n3 Fine-tuning 8\n3.1 Supervised Fine-Tuning (SFT) . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 9\n3.2 Reinforcement Learning with Human Feedback (RLHF) . . . . . . . . . . . . . . . . . . . . . 9\n3.3 System Message for Multi-Turn Consistency . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 16\n3.4 RLHF Results . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 17\n4 Safety 20\n4.1 Safety in Pretraining . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 20\n4.2 Safety Fine-Tuning . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 23\n4.3 Red Teaming . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 28\n4.4 Safety Evaluation of Llama 2-Chat . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 29\n5 Discussion 32\n5.1 Learnings and Observations . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 32\n5.2 Limitations and Ethical Considerations . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 34\n5.3 Responsible Release Strategy . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 35\n6 Related Work 35\n7 Conclusion 36\nA Appendix 46\nA.1 Contributions . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 46\nA.2 Additional Details for Pretraining . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 47\nA.3 Additional Details for Fine-tuning . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 51\nA.4 Additional Details for Safety . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 58\nA.5 Data Annotation . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 72\nA.6 Dataset Contamination . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 75\nA.7 Model Card . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 77\n2\n\nFigure 1: Helpfulness human evaluationresults forLlama\n2-Chatcompared to other open-source and closed-source\nmodels. Human raters compared model generations on ~4k\nprompts consisting of both single and multi-turn prompts.\nThe95%confidenceintervalsforthisevaluationarebetween\n1% and 2%. More details in Section 3.4.2. While reviewing\nthese results, it is important to note that human evaluations\ncanbenoisyduetolimitationsofthepromptset,subjectivity\nof the review guidelines, subjectivity of individual raters,\nand the inherent difficulty of comparing generations.\nFigure 2: Win-rate % for helpfulness and\nsafety between commercial-licensed base-\nlines andLlama 2-Chat, according to GPT-\n4. To complement the human evaluation, we\nused a more capable model, not subject to\nour own guidance. Green area indicates our\nmodelisbetteraccordingtoGPT-4. Toremove\nties, we usedwin/(win + loss). The orders in\nwhich the model responses are presented to\nGPT-4arerandomlyswappedtoalleviatebias.\n1 Introduction\nLarge Language Models (LLMs) have shown great promise as highly capable AI assistants that excel in\ncomplex reasoning tasks requiring expert knowledge across a wide range of fields, including in specialized\ndomains such as programming and creative writing. They enable interaction with humans through intuitive\nchat interfaces, which has led to rapid and widespread adoption among the general public.\nThe capabilities of LLMs are remarkable considering the seemingly straightforward nature of the training\nmethodology. Auto-regressive transformers are pretrained on an extensive corpus of self-supervised data,\nfollowed by alignment with human preferences via techniques such as Reinforcement Learning with Human\nFeedback (RLHF). Although the training methodology is simple, high computational requirements have\nlimited the development of LLMs to a few players. There have been public releases of pretrained LLMs\n(such as BLOOM (Scao et al., 2022), LLaMa-1 (Touvron et al., 2023), and Falcon (Penedo et al., 2023)) that\nmatch the performance of closed pretrained competitors like GPT-3 (Brown et al., 2020) and Chinchilla\n(Hoffmann et al., 2022), but none of these models are suitable substitutes for closed “product” LLMs, such\nas ChatGPT, BARD, and Claude. These closed product LLMs are heavily fine-tuned to align with human\npreferences, which greatly enhances their usability and safety. This step can require significant costs in\ncompute and human annotation, and is often not transparent or easily reproducible, limiting progress within\nthe community to advance AI alignment research.\nIn this work, we develop and release Llama 2, a family of pretrained and fine-tuned LLMs,Llama 2 and\nLlama 2-Chat, at scales up to 70B parameters. On the series of helpfulness and safety benchmarks we tested,\nLlama 2-Chat models generally perform better than existing open-source models. They also appear to\nbe on par with some of the closed-source models, at least on the human evaluations we performed (see\nFigures 1 and 3). We have taken measures to increase the safety of these models, using safety-specific data\nannotation and tuning, as well as conducting red-teaming and employing iterative evaluations. Additionally,\nthis paper contributes a thorough description of our fine-tuning methodology and approach to improving\nLLM safety. We hope that this openness will enable the community to reproduce fine-tuned LLMs and\ncontinue to improve the safety of those models, paving the way for more responsible development of LLMs.\nWe also share novel observations we made during the development ofLlama 2 and Llama 2-Chat, such as\nthe emergence of tool usage and t"
+              }
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}
