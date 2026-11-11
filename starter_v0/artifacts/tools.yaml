@@ -102,7 +102,7 @@ tools:
       required: [query]
 
   - name: paper_text
-    description: "Lấy nội dung toàn văn của một bài báo khoa học từ arXiv. DÙNG KHI: đã có ID hoặc URL của bài báo trên arXiv và cần đọc chi tiết."
+    description: "Lấy nội dung toàn văn của một bài báo khoa học từ arXiv. DÙNG KHI: đã có ID hoặc URL của bài báo trên arXiv và cần đọc chi tiết. KHÔNG DÙNG KHI: chỉ tìm danh sách bài báo theo từ khóa (dùng papers) hoặc đọc trang web/RSS thông thường (dùng fetch/rss_feed_reader)."
     parameters:
       type: object
       properties:
@@ -113,7 +113,7 @@ tools:
 
   # ---------------- Custom group tools (CP3) ----------------
   - name: topic_radar
-    description: "Đối chiếu và so sánh tin tức báo chí với trao đổi trên mạng xã hội X về một chủ đề. DÙNG KHI: yêu cầu so sánh đa nền tảng hoặc radar chủ đề giữa tin tức và dư luận MXH."
+    description: "Đối chiếu và so sánh tin tức báo chí với trao đổi trên mạng xã hội X về một chủ đề. DÙNG KHI: yêu cầu so sánh đa nền tảng hoặc radar chủ đề giữa tin tức và dư luận MXH. KHÔNG DÙNG KHI: chỉ cần tìm tin web đơn thuần (dùng lookup), xem tweet của một cá nhân (dùng timeline), hoặc tìm bằng chứng kiểm chứng một nhận định cụ thể (dùng evidence_finder)."
     parameters:
       type: object
       properties:
@@ -125,7 +125,7 @@ tools:
       required: [query]
 
   - name: evidence_finder
-    description: "Tìm kiếm bằng chứng xác thực và trích đoạn từ nhiều nguồn web cho một luận điểm/tuyên bố (claim). DÙNG KHI: cần tìm bằng chứng kiểm chứng một nhận định hoặc claim."
+    description: "Tìm kiếm bằng chứng xác thực và trích đoạn từ nhiều nguồn web cho một luận điểm/tuyên bố (claim). DÙNG KHI: cần tìm bằng chứng kiểm chứng một nhận định hoặc claim. KHÔNG DÙNG KHI: chỉ đọc nội dung một URL/RSS cụ thể (dùng fetch/rss_feed_reader) hoặc so sánh tin tức với mạng xã hội X theo chủ đề (dùng topic_radar)."
     parameters:
       type: object
       properties:

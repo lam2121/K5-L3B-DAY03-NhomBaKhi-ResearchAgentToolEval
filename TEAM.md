@@ -44,7 +44,7 @@ report/team/MSSV_HoTen.md
 - Tối ưu v2 (80%, 16/20): Phân biệt `social_search` theo chủ đề với thiếu account cá nhân, kích hoạt gọi tool song song và chỉ định `response_type: yes_no` cho confirm (Tool Routing Accuracy đạt 100%).
 - Tối ưu v3 (85%, 17/20 trên OpenRouter `gpt-4o-mini`, `provider_error_cases=0`): Chuẩn hóa mô tả khi nào dùng/không dùng và quy ước tham số sạch trong `artifacts/tools.yaml`.
 - Xử lý lỗi rate limit (429/503) trong `providers/gemini_provider.py` bằng cơ chế retry.
-- Chuẩn hóa bộ test nhóm `eval_group.json` (loại bỏ assert dư thừa lên tham số mặc định `false` ở `G01`, `G03`, tối ưu điều kiện kiểm tra `G05`), giúp run `v3_B_group_openrouter_20261111T014441360490.json` đạt 9/10 (90%) và kiểm chứng cuối tại `v3_B_group_openrouter_20261111T091833288768.json` đạt **10/10 (100%)** (`8987678`).
+- Chuẩn hóa bộ test nhóm `eval_group.json` (loại bỏ assert dư thừa lên tham số mặc định `false` ở `G01`, `G03`, tối ưu điều kiện kiểm tra `G05`), nâng điểm từ 5/10 lên 9/10 ở commit `ac3e062`, và kiểm chứng cuối tại `v3_B_group_openrouter_20261111T091833288768.json` đạt **10/10 (100%)** (`8987678`).
 - Chạy thử nghiệm Ollama local `eval_group` với `qwen2.5:0.5b` (3/10 = 30%, routing 0.90) và `qwen2.5:3b` (6/10 = 60%, routing 1.00), ghi nhận vào `version_log.csv` (`bf2053a`).
 
 ### Bằng chứng
@@ -55,7 +55,6 @@ report/team/MSSV_HoTen.md
   + `starter_v0/runs/v1_B_base_gemini_20261110T181127878174.json`
   + `starter_v0/runs/v2_B_base_gemini_20261110T182200983550.json`
   + `starter_v0/runs/v3_B_base_openrouter_20261111T001429486980.json`
-  + `starter_v0/runs/v3_B_group_openrouter_20261111T014441360490.json`
   + `starter_v0/runs/v3_B_group_openrouter_20261111T091833288768.json`
   + `starter_v0/runs/v3-local_B_group_ollama_20261111T100206146391.json`
   + `starter_v0/runs/v3-local_B_group_ollama_20261111T101227317712.json`
