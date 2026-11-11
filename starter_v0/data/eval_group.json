@@ -23,8 +23,7 @@
             "args": {
               "query": "robotics",
               "timeframe": "month",
-              "limit": 4,
-              "include_social": true
+              "limit": 4
             }
           }
         ]
@@ -191,7 +190,7 @@
           {
             "name": "evidence_finder",
             "args": {
-              "claim": "Remote work can reduce commuter traffic congestion.",
+              "claim": "Remote work can reduce commuter traffic congestion",
               "max_sources": 5,
               "deep_read": false
             }
