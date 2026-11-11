@@ -71,12 +71,12 @@ report/team/MSSV_HoTen.md
 - **Hỗ trợ Hưng (Prompt & Eval Engineer):** Lưu trữ, đồng bộ các phiên bản `starter_v0/artifacts/system_prompt_v0.md`–`v3.md`, `system_prompt.md` (`ac2a337`, `d4c74a2`) và chỉnh cấu hình mặc định trong `starter_v0/providers/gemini_provider.py` (`d80c157`).
 - **Hỗ trợ Dũng (New Tool Builder & Tool Contract):** Phát triển thêm tool thứ 4 `rss_feed_reader` (`starter_v0/tools/rss_feed_reader/tool.py`, `TOOL.md`), đăng ký vào `starter_v0/tools/__init__.py` và `starter_v0/artifacts/tools.yaml` (không thay đổi `system_prompt.md`).
 - **Hỗ trợ Toàn (QA & Unit Test Engineer):** Viết 3 tests chuẩn C4 cho `rss_feed_reader` và test failure path cho `source_deduplicator` trong `starter_v0/tests/test_tools_todo.py`, cùng bộ test offline `starter_v0/tests/test_rss_feed_reader.py`, nâng tổng suite lên **152 passed, 0 failed, 0 skipped**.
-- **Hỗ trợ Minh (Data & Live Chat Engineer):** Chạy phiên live chat gửi Telegram thật sau xác nhận (`starter_v0/transcripts/v3_gemini_20261110T235739095905.transcript.json`, `status: "sent"`) và cập nhật case `G05_rss_feed_reader_direct` trong `starter_v0/data/eval_group.json` cho tool thứ 4 (chưa chạy lại `run_eval` cho case mới).
+- **Hỗ trợ Minh (Data & Live Chat Engineer):** Chạy phiên live chat gửi Telegram thật sau xác nhận (`starter_v0/transcripts/v3_gemini_20261110T235739095905.transcript.json`, `status: "sent"`) và cập nhật case `G05_rss_feed_reader_direct` trong `starter_v0/data/eval_group.json` cho tool thứ 4; run kiểm chứng `--suite group` sau đó (`v3_B_group_openrouter_20261111T091833288768.json`, commit `8987678`) đạt **10/10 (100%)**.
 
 ### Bằng chứng
 
-- Files: `starter_v0/app.py`, `starter_v0/requirements.txt`, `starter_v0/transcripts/v3_gemini_20261110T235739095905.transcript.json`, `starter_v0/tools/rss_feed_reader/`, `starter_v0/tools/__init__.py`, `starter_v0/artifacts/tools.yaml`, `starter_v0/tests/test_tools_todo.py`, `starter_v0/tests/test_rss_feed_reader.py`, `starter_v0/data/eval_group.json`, `TEAM.md`, `report/team/group_report.md`, `report/team/2A202604115_NguyenVanLam.md`.
-- Commits trên `main`: `d80c157`, `ac2a337`, `d4c74a2` (kèm phần `rss_feed_reader` & `G05` vừa cập nhật trên nền `45d93ab`).
+- Files: `starter_v0/app.py`, `starter_v0/requirements.txt`, `starter_v0/transcripts/v3_gemini_20261110T235739095905.transcript.json`, `starter_v0/tools/rss_feed_reader/`, `starter_v0/tools/__init__.py`, `starter_v0/artifacts/tools.yaml`, `starter_v0/tests/test_tools_todo.py`, `starter_v0/tests/test_rss_feed_reader.py`, `starter_v0/data/eval_group.json`, `starter_v0/runs/v3_B_group_openrouter_20261111T091833288768.json`, `TEAM.md`, `report/team/group_report.md`, `report/team/2A202604115_NguyenVanLam.md`.
+- Commits trên `main`: `d80c157`, `ac2a337`, `d4c74a2`, `373a505` (kèm run kiểm chứng `8987678` từ `Hungnd1208`).
 
 ---
 

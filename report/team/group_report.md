@@ -16,7 +16,7 @@
 
 ### A1. Agent này làm được gì
 
-"Research agent đa kênh: hỗ trợ tra cứu tin tức web, bài đăng mạng xã hội X/Twitter, bài báo khoa học arXiv, tra cứu chính sách nội bộ, tự động khử trùng nguồn, tìm kiếm bằng chứng kiểm chứng luận điểm, đối chiếu chủ đề đa nền tảng, tổng hợp bản tin ngắn và gửi bản tin lên Telegram sau khi được người dùng xác nhận rõ ràng."
+"Research agent đa kênh: hỗ trợ tra cứu tin tức web, đọc trực tiếp RSS/Atom feed (XML), bài đăng mạng xã hội X/Twitter, bài báo khoa học arXiv, tra cứu chính sách nội bộ, tự động khử trùng nguồn, tìm kiếm bằng chứng kiểm chứng luận điểm, đối chiếu chủ đề đa nền tảng, tổng hợp bản tin ngắn và gửi bản tin lên Telegram sau khi được người dùng xác nhận rõ ràng."
 
 **Cách chạy UI:** `cd starter_v0 && python -m streamlit run app.py` (dependency `streamlit>=1.30.0` đã được khai báo trong `starter_v0/requirements.txt`).
 
@@ -41,6 +41,7 @@
 | `topic_radar` | Đối chiếu tin tức báo chí (Tavily) và trao đổi trên X (RapidAPI) cho cùng một chủ đề, đo độ giao thoa từ khóa | **Có** |
 | `evidence_finder` | Tìm kiếm bằng chứng và trích đoạn liên quan nhất cho một luận điểm (`claim`) từ nhiều tên miền khác nhau | **Có** |
 | `source_deduplicator` | Khử trùng lặp các nguồn tin theo URL chuẩn hóa (bỏ UTM/tracker), tiêu đề, và tùy chọn đối chiếu nội dung sâu | **Có** |
+| `rss_feed_reader` | Đọc và phân tích trực tiếp RSS 2.0 / RDF / Atom feed (XML) từ URL công khai, hỗ trợ giới hạn số lượng và lọc `keyword` | **Có** |
 
 ### A3. Câu hỏi mẫu để thử
 
@@ -57,9 +58,9 @@
   - Bổ sung quy tắc hỏi lại (`clarify`) khi thiếu ngữ cảnh bắt buộc và ranh giới bắt buộc xác nhận (`response_type: yes_no`) trước khi gọi `send`.
   - Hỗ trợ duy trì ngữ cảnh hội thoại đa lượt (multi-turn carryover & correction), định tuyến song song (`lookup` + `social_search`) khi cần đa kênh và định tuyến độc quyền tới tool mới `topic_radar` khi đối chiếu đa nền tảng.
 - **Chuẩn hóa `starter_v0/artifacts/tools.yaml`:**
-  - Viết lại mô tả cho cả 13 tools theo chuẩn: làm gì, **KHI NÀO DÙNG**, **KHI NÀO KHÔNG DÙNG**.
+  - Viết lại mô tả cho cả 14 tools theo chuẩn: làm gì, **KHI NÀO DÙNG**, **KHI NÀO KHÔNG DÙNG**.
   - Chuẩn hóa quy ước tham số: `screenname` không có `@`; `query` chỉ chứa từ khóa cốt lõi (loại bỏ filler words như "tin tức", "news", "hôm nay"); ranh giới `confirmed=true` cho `send`.
-- **Phát triển 3 tool mới (`topic_radar`, `evidence_finder`, `source_deduplicator`):**
+- **Phát triển 4 tool mới (`topic_radar`, `evidence_finder`, `source_deduplicator`, `rss_feed_reader`):**
   - Mỗi tool có đủ `tool.py`, `TOOL.md` đúng frontmatter contract, được đăng ký đầy đủ trong `tools/__init__.py` và `artifacts/tools.yaml`, và xử lý ngoại lệ an toàn bằng cách trả về error dict thay vì raise exception.
 
 ## 4. Kết quả — PHẦN B: Chi tiết và bằng chứng
@@ -91,7 +92,7 @@ Phân tích 7 ca FAIL ở baseline `v0` (`v0_B_base_gemini_20261110T174737486284
 
 ### B3. Team Eval Cases
 
-Liệt kê đúng 10 case trong `starter_v0/data/eval_group.json` (5 single turn + 5 multi turn). Kết quả từ run hợp lệ mới nhất `starter_v0/runs/v3_B_group_openrouter_20261111T014441360490.json` (**9/10 PASS = 90%**, `provider_error_cases == 0`):
+Liệt kê đúng 10 case trong `starter_v0/data/eval_group.json` (5 single turn + 5 multi turn). Kết quả từ run hợp lệ mới nhất `starter_v0/runs/v3_B_group_openrouter_20261111T091833288768.json` (**10/10 PASS = 100%**, `provider_error_cases == 0`):
 
 | Case ID | What It Tests | Expected Tool/Behavior | Result |
 |---|---|---|---|
@@ -99,9 +100,9 @@ Liệt kê đúng 10 case trong `starter_v0/data/eval_group.json` (5 single turn
 | `G02_evidence_finder_snippets` | Trích xuất claim, `max_sources=4`, tắt `deep_read` | `evidence_finder(claim=..., max_sources=4, deep_read=false)` | **PASS** |
 | `G03_source_deduplicator_local` | Lọc trùng danh sách có sẵn ở chế độ local, không cào trang | `source_deduplicator(...)` | **PASS** |
 | `G04_format_existing_sources_brief` | Định dạng trực tiếp nguồn có sẵn với `template="brief"` và đúng `headline` | `format(template="brief", headline="AI Governance Brief")` | **PASS** |
-| `G05_lookup_general_documentation` | Tìm tài liệu kỹ thuật dùng `topic="general"` thay vì `news` | `lookup(topic="general")` | **PASS** |
+| `G05_rss_feed_reader_direct` | Định tuyến link RSS feed trực tiếp sang `rss_feed_reader` (không sửa prompt), giữ `url`, `max_items=4`, `keyword="safety"` | `rss_feed_reader(url="https://openai.com/news/rss.xml", max_items=4, keyword="safety")` | **PASS** |
 | `GM01_source_deduplicator_local_followup` | Multi-turn: giữ lại danh sách nguồn ở turn 1 và tuân thủ lệnh không gọi extraction API ở turn 2 | `source_deduplicator(verify_content=false)` | **PASS** |
-| `GM02_topic_radar_carryover_weekly` | Multi-turn: giữ chủ đề từ turn 1 sang turn 2 và áp dụng `timeframe=week`, `limit=3`, `enrich_articles=false` | `topic_radar(query="robotics", timeframe="week", limit=3, include_social=true, enrich_articles=false)` | FAIL *(extra tool call `topic_radar`)* |
+| `GM02_topic_radar_carryover_weekly` | Multi-turn: giữ chủ đề từ turn 1 sang turn 2 và áp dụng `timeframe=week`, `limit=3`, `enrich_articles=false` | `topic_radar(query="robotics", timeframe="week", limit=3, include_social=true, enrich_articles=false)` | **PASS** |
 | `GM03_evidence_finder_carryover_claim` | Multi-turn: giữ nguyên `claim` ở turn 1 và áp dụng `max_sources=5`, `deep_read=false` | `evidence_finder(claim=..., max_sources=5, deep_read=false)` | **PASS** |
 | `GM04_format_bullets_followup` | Multi-turn: định dạng `template="bullets"` và cập nhật `headline` theo lượt sau | `format(template="bullets", headline="AI Research Source Notes")` | **PASS** |
 | `GM05_paper_text_page_limit_correction` | Multi-turn: giữ đúng arXiv ID `2307.09288` và cập nhật giới hạn `max_pages=3` | `paper_text(arxiv_url="2307.09288", max_pages=3)` | **PASS** |
@@ -121,24 +122,24 @@ Lấy từ 4 file transcript trong `starter_v0/transcripts/`:
 
 | Item | Evidence File | What Worked | Risk / Guardrail |
 |---|---|---|---|
-| Tool mới (`tools/<tên>/`) | `starter_v0/tools/topic_radar/`, `evidence_finder/`, `source_deduplicator/` (mỗi tool đủ `tool.py` + `TOOL.md`), đã đăng ký trong `tools/__init__.py` & `artifacts/tools.yaml` | Cả 3 tool hoạt động ổn định, hợp đồng đồng bộ 100% (`test_tool_contract.py` 70/70 passed) | Kiểm tra đầu vào chặt chẽ, reject URL nội bộ (`localhost`, `.local`, IP private), trả về error dict thay vì raise exception |
-| Unit test tool mới (≥ 3 test/tool) | `starter_v0/tests/test_tools_todo.py`, `test_topic_radar.py`, `test_evidence_finder.py`, `test_source_deduplicator.py` | Toàn suite `pytest starter_v0/tests/` đạt **134 passed, 0 failed, 0 skipped** trong 0.34s | Mọi HTTP request đều chạy offline hoàn toàn bằng `fake_http` & `monkeypatch`; chặn gọi mạng thật qua `block_network` |
-| UI (lệnh chạy + link dùng thử) | `starter_v0/app.py`, `starter_v0/requirements.txt` | Lệnh chạy: `cd starter_v0 && python -m streamlit run app.py`. Giao diện sạch, hỗ trợ chat nhiều lượt và thực thi trực tiếp cả 13 tools | Tích hợp xác nhận người dùng trước khi `send` và không làm lộ API key lên giao diện |
+| Tool mới (`tools/<tên>/`) | `starter_v0/tools/topic_radar/`, `evidence_finder/`, `source_deduplicator/`, `rss_feed_reader/` (mỗi tool đủ `tool.py` + `TOOL.md`), đã đăng ký trong `tools/__init__.py` & `artifacts/tools.yaml` | Cả 4 tool hoạt động ổn định, hợp đồng đồng bộ 100% (`test_tool_contract.py` 75/75 passed) | Kiểm tra đầu vào chặt chẽ, reject URL/IP nội bộ (`localhost`, `.local`, `.internal`, IP private), chặn `DOCTYPE`/`ENTITY` (XML) và trả về error dict thay vì raise exception |
+| Unit test tool mới (≥ 3 test/tool) | `starter_v0/tests/test_tools_todo.py`, `test_topic_radar.py`, `test_evidence_finder.py`, `test_source_deduplicator.py`, `test_rss_feed_reader.py` | Toàn suite `pytest starter_v0/tests/` đạt **152 passed, 0 failed, 0 skipped** trong 0.50s | Mọi HTTP request đều chạy offline hoàn toàn bằng `fake_http` & `monkeypatch`; chặn gọi mạng thật qua `block_network` |
+| UI (lệnh chạy + link dùng thử) | `starter_v0/app.py`, `starter_v0/requirements.txt` | Lệnh chạy: `cd starter_v0 && python -m streamlit run app.py`. Giao diện sạch, hỗ trợ chat nhiều lượt và thực thi trực tiếp cả 14 tools | Tích hợp xác nhận người dùng trước khi `send` và không làm lộ API key lên giao diện |
 
-- **Tool unit tests:** Nhóm đã triển khai toàn bộ test cho cả core tools và 3 tools mới với tổng số **134 test cases** (trong đó `test_topic_radar.py`: 16 tests, `test_evidence_finder.py`: 14 tests, `test_source_deduplicator.py`: 7 tests, `test_tools_todo.py`: 20 tests). Một ví dụ lỗi mà unit test bắt được nhưng eval không bắt được: trường hợp truyền tham số out-of-enum (`timeframe="decade"`), giới hạn vượt ngưỡng (`limit=99`), URL nội bộ (`http://localhost/secret`) hoặc thiếu API key (`TAVILY_API_KEY`) khiến code tool có thể văng `ValueError`/`TypeError` hoặc `RuntimeError` nếu không được bọc trong `try...except` để trả về error dict chuẩn.
+- **Tool unit tests:** Nhóm đã triển khai toàn bộ test cho cả core tools và 4 tools mới với tổng số **152 test cases** (trong đó `test_topic_radar.py`: 16 tests, `test_evidence_finder.py`: 14 tests, `test_source_deduplicator.py`: 7 tests, `test_rss_feed_reader.py`: 9 tests, `test_tools_todo.py`: 24 tests, `test_tools_examples.py`: 7 tests, `test_tool_contract.py`: 75 tests). Một ví dụ lỗi mà unit test bắt được nhưng eval không bắt được: trường hợp truyền tham số out-of-enum (`timeframe="decade"`), giới hạn vượt ngưỡng (`limit=99`), URL nội bộ (`http://localhost/secret`, `169.254.169.254` sau redirect), XML chứa `<!DOCTYPE`/`<!ENTITY>`, hoặc thiếu API key (`TAVILY_API_KEY`, `FIRECRAWL_API_KEY`) khiến code tool có thể văng `ValueError`/`TypeError`/`RuntimeError` nếu không được bọc trong `try...except` để trả về error dict chuẩn.
 
 ### B5. Bonus Evidence
 
 | Bonus | Evidence File | What Worked | Risk / Guardrail |
 |---|---|---|---|
 | Small Local Model | *(Không thực hiện)* | - | - |
-| Hơn 3 tool mới (≥ 4) | Nhóm có **3 tool mới** (`topic_radar`, `evidence_finder`, `source_deduplicator`) | Đạt đầy đủ chuẩn CP3 cho cả 3 tool | *(Thiếu 1 tool nữa để đạt mốc ≥ 4 cho bonus này)* |
+| Hơn 3 tool mới (≥ 4) | Nhóm có **4 tool mới** (`topic_radar`, `evidence_finder`, `source_deduplicator`, `rss_feed_reader`), `eval_group.json` + `runs/v3_B_group_openrouter_20261111T091833288768.json` | Đạt đủ chuẩn `TOOL.md`, đăng ký `tools/__init__.py` + `tools.yaml`, ≥ 3 test/tool ngay trong `test_tools_todo.py`, và `G05_rss_feed_reader_direct` đạt **PASS** (10/10 = 100%) dù không sửa `system_prompt.md` | Chặn URL nội bộ/SSRF, XML `DOCTYPE`/`ENTITY`, và tách rõ `DÙNG KHI / KHÔNG DÙNG KHI` với `fetch` và `lookup` trong `tools.yaml` |
 | `send` gửi thật lên Telegram sau xác nhận | `starter_v0/transcripts/v3_gemini_20261110T235739095905.transcript.json` (Turn 3–4) | Agent hỏi lại `clarify(yes_no)`, người dùng trả lời *"Tôi xác nhận gửi"*, agent gọi `send(confirmed=true)` và trả về `status: "sent"` trên private channel của nhóm | Bắt buộc cấu hình `TELEGRAM_BOT_TOKEN` & `TELEGRAM_CHAT_ID` trong `.env` (không commit); tuyệt đối chặn gửi khi `confirmed=false` |
-| Test challenge (0 skipped / regression test) | Output chạy `pytest starter_v0/tests/` | Toàn bộ **134/134 tests passed, 0 skipped, 0 failed** (đã hoàn tất toàn bộ các stub TODO trong `test_tools_todo.py`) | Đảm bảo 100% chạy offline nhờ fixture `block_network` |
+| Test challenge (0 skipped / regression test) | Output chạy `pytest starter_v0/tests/` | Toàn bộ **152/152 tests passed, 0 skipped, 0 failed** (đã hoàn tất toàn bộ các stub TODO và đủ 3 test/tool trong `test_tools_todo.py`) | Đảm bảo 100% chạy offline nhờ fixture `block_network` |
 
 ### B7. Small Local Model Challenge (bonus)
 
-*(Nhóm tập trung vào tối ưu cloud models Gemini/OpenRouter, hoàn thiện 3 tools, test suite 0 skipped và Telegram live flow nên không thực hiện phần Small Local Model).*
+*(Nhóm tập trung vào tối ưu cloud models Gemini/OpenRouter, hoàn thiện 4 tools mới, test suite 0 skipped và Telegram live flow nên không thực hiện phần Small Local Model).*
 
 ## 5. Khó khăn và cách xử lý
 
@@ -146,10 +147,10 @@ Lấy từ 4 file transcript trong `starter_v0/transcripts/`:
    - **Hiện tượng:** Khi chạy `run_eval.py` liên tiếp 20 cases bằng Gemini Free Tier (giới hạn 15 requests/phút), một số lượt sau (như `M02` ở lần thử v1, `R14` ở lần thử v3 lúc 18:29) gặp lỗi HTTP 429 hoặc 503 từ Google API (`v3_B_base_gemini_20261110T182951613132.json` bị `provider_error_cases = 1`).
    - **Cách xử lý:**
      + Bổ sung vòng lặp `retry` với `time.sleep` khi gặp lỗi `429`/`503`/`500` trong `starter_v0/providers/gemini_provider.py`.
-     + Để đảm bảo các run nộp bài hoàn toàn sạch lỗi provider (`provider_error_cases == 0` và `measured_cases == 20/20`), nhóm chuyển sang chạy kiểm chứng v3 và group eval trên **OpenRouter (`openai/gpt-4o-mini`)** (lưu tại `v3_B_base_openrouter_20261111T001429486980.json` và `v3_B_group_openrouter_20261111T014441360490.json`).
+     + Để đảm bảo các run nộp bài hoàn toàn sạch lỗi provider (`provider_error_cases == 0` và `measured_cases == 20/20`), nhóm chuyển sang chạy kiểm chứng v3 và group eval trên **OpenRouter (`openai/gpt-4o-mini`)** (lưu tại `v3_B_base_openrouter_20261111T001429486980.json` và `v3_B_group_openrouter_20261111T091833288768.json`).
 2. **Lỗi giả (False Negatives) do ép kiểm tra giá trị mặc định trong `eval_group.json`:**
    - **Hiện tượng:** Lần chạy `eval_group` đầu tiên (`v3_B_group_openrouter_20261111T012441145412.json`) chỉ đạt 5/10 (50%) do các case `G01` và `G03` ép model phải truyền `enrich_articles: false` và `verify_content: false` trong khi model bỏ qua các tham số mang giá trị mặc định này (`None != False`).
-   - **Cách xử lý:** Tuân thủ nguyên tắc thiết kế eval case (chỉ assert các tham số cốt lõi cần kiểm tra), điều chỉnh lại `expect` của `G01`, `G03`, `G05` trong `data/eval_group.json` và làm rõ quy tắc định tuyến `topic_radar` trong `system_prompt.md`, giúp lần chạy sau đạt **9/10 (90%)**.
+   - **Cách xử lý:** Tuân thủ nguyên tắc thiết kế eval case (chỉ assert các tham số cốt lõi cần kiểm tra), điều chỉnh lại `expect` của `G01`, `G03`, `G05` trong `data/eval_group.json` và làm rõ quy tắc định tuyến `topic_radar` trong `system_prompt.md`, đạt 9/10 ở vòng chỉnh đầu và sau khi bổ sung tool thứ 4 `rss_feed_reader` (`G05_rss_feed_reader_direct`) đạt **10/10 (100%)** tại `v3_B_group_openrouter_20261111T091833288768.json`.
 3. **Lỗi xung đột format CSV ở `version_log.csv`:**
    - Khi ghi cột `reason` và `hypothesis` chứa dấu phẩy nhưng thiếu ngoặc kép khiến cột bị nhảy; nhóm đã chuẩn hóa bằng chuỗi bọc dấu ngoặc kép theo chuẩn RFC 4180 và mã hóa UTF-8 Tiếng Việt.
 
@@ -161,23 +162,23 @@ Chi tiết đóng góp của từng thành viên nằm trong [TEAM.md](../../TEA
 
 - **Phần việc chính phụ trách (UI, Báo cáo & Điều phối):**
   - Khởi tạo và hoàn thiện giao diện Web UI bằng Streamlit (`starter_v0/app.py`, `starter_v0/requirements.txt`, hỗ trợ tunnel qua `starter_v0/cloudflared.exe`) để kiểm thử đa lượt và thực thi an toàn các tool.
-  - Biên tập khung báo cáo nhóm (`report/team/group_report.md`), cập nhật `TEAM.md`, báo cáo cá nhân (`report/team/2A202604115_NguyenVanLam.md`) và điều phối tiến độ/nộp bài của nhóm (`d80c157`, `ac2a337`, `d4c74a2`).
+  - Biên tập khung báo cáo nhóm (`report/team/group_report.md`), cập nhật `TEAM.md`, báo cáo cá nhân (`report/team/2A202604115_NguyenVanLam.md`) và điều phối tiến độ/nộp bài của nhóm (`d80c157`, `ac2a337`, `d4c74a2`, `373a505`).
 - **Phần hỗ trợ các thành viên khác:**
   - *Hỗ trợ Hưng (Prompt & Eval Engineer):* Đồng bộ và lưu lịch sử các phiên bản `system_prompt_v0.md`–`v3.md` (`ac2a337`, `d4c74a2`), chỉnh cấu hình mặc định trong `providers/gemini_provider.py` (`d80c157`).
-  - *Hỗ trợ Dũng (New Tool Builder & Tool Contract):* Thiết kế và tích hợp thêm tool thứ 4 `rss_feed_reader` (`tools/rss_feed_reader/tool.py`, `TOOL.md`, `tools/__init__.py`, `artifacts/tools.yaml`) mà không sửa `system_prompt.md`.
+  - *Hỗ trợ Dũng (New Tool Builder & Tool Contract):* Thiết kế và tích hợp thêm tool thứ 4 `rss_feed_reader` (`tools/rss_feed_reader/tool.py`, `TOOL.md`, `tools/__init__.py`, `artifacts/tools.yaml`) mà không sửa `system_prompt.md` (`373a505`).
   - *Hỗ trợ Toàn (QA & Unit Test Engineer):* Bổ sung 3 tests chuẩn C4 cho `rss_feed_reader` và failure path cho `source_deduplicator` trong `tests/test_tools_todo.py`, cùng bộ test offline trong `tests/test_rss_feed_reader.py`, nâng tổng suite đạt **152 passed, 0 failed, 0 skipped**.
-  - *Hỗ trợ Minh (Data & Live Chat Engineer):* Thực hiện phiên live chat gửi Telegram thật sau xác nhận (`starter_v0/transcripts/v3_gemini_20261110T235739095905.transcript.json`, `status: "sent"`) và cập nhật case `G05_rss_feed_reader_direct` trong `data/eval_group.json` cho tool thứ 4 (chưa chạy lại `run_eval` lên LLM cho case mới này).
+  - *Hỗ trợ Minh (Data & Live Chat Engineer):* Thực hiện phiên live chat gửi Telegram thật sau xác nhận (`starter_v0/transcripts/v3_gemini_20261110T235739095905.transcript.json`, `status: "sent"`) và cập nhật case `G05_rss_feed_reader_direct` trong `data/eval_group.json` (`373a505`); run kiểm chứng `--suite group` từ Hưng ở commit `8987678` (`v3_B_group_openrouter_20261111T091833288768.json`) đã đạt **10/10 (100%)**.
 
 ## 7. Hạn chế và hướng cải thiện — B6. Reflection
 
 - **Fix nào thuộc `system_prompt.md`?**
   - Loại bỏ chỉ dẫn xấu ép đoán bừa và tự ý gửi, quy tắc bắt buộc `clarify` khi thiếu thông tin/chưa xác nhận, quy tắc gọi song song nhiều nguồn, và các quy ước ứng xử đa lượt (multi-turn carryover/correction).
 - **Fix nào thuộc `tools.yaml`?**
-  - Mô tả phạm vi "Khi nào dùng / Khi nào KHÔNG dùng" của từng tool để chống nhầm lẫn giữa các công cụ tương đồng (`timeline` vs `social_search`, `lookup` vs `fetch`, `topic_radar` vs `lookup`), quy ước format tham số (`screenname` không `@`, `query` không filler words, `confirmed=true` cho `send`).
+  - Mô tả phạm vi "Khi nào dùng / Khi nào KHÔNG dùng" của từng tool để chống nhầm lẫn giữa các công cụ tương đồng (`timeline` vs `social_search`, `lookup` vs `fetch`, `topic_radar` vs `lookup`, `rss_feed_reader` vs `fetch`/`lookup`), quy ước format tham số (`screenname` không `@`, `query` không filler words, `confirmed=true` cho `send`).
 - **Failure nào cần review thủ công thay vì chấm tự động?**
-  - Các trường hợp như `G05` (từ khóa tìm kiếm có nhiều cách diễn đạt tương đương như `"OAuth 2.0 PKCE"` vs `"OAuth 2.0 authorization code flow with PKCE"`), chất lượng câu hỏi `clarify` có tự nhiên/dễ hiểu với người dùng không, và chất lượng tổng hợp nội dung/trích dẫn của câu trả lời cuối cùng sau khi gọi tool xong.
+  - Các trường hợp từ khóa có nhiều cách diễn đạt tương đương trong `lookup`/`social_search`, tính tự nhiên/rõ ràng của câu hỏi `clarify`, và chất lượng tổng hợp nội dung/trích dẫn của câu trả lời cuối cùng sau khi gọi tool xong.
 - **Nếu có thêm một vòng, nhóm sẽ thử giả thuyết nào?**
-  - Thiết lập cơ chế ràng buộc trên `gpt-4o-mini` để khắc phục hoàn toàn việc gọi thừa tool `social_search` khi người dùng chỉ yêu cầu tin tức báo chí (`R03`, `M02`, `M06`) hoặc gọi lặp tool trong multi-turn (`GM02`), đồng thời phát triển thêm 1 tool mới nữa để đủ mốc ≥ 4 tool cho Bonus và thử nghiệm trên Small Local Model qua Ollama.
+  - Thiết lập cơ chế ràng buộc trên `gpt-4o-mini` để khắc phục hoàn toàn việc gọi thừa tool `social_search` khi người dùng chỉ yêu cầu tin tức báo chí ở `eval_base.json` (`R03`, `M02`, `M06`) và mở rộng thử nghiệm thêm trên Small Local Model qua Ollama.
 
 ## 8. Tài liệu tham khảo
 
