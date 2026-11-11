@@ -1,9 +1,9 @@
 {
-  "run_id": "v3_B_group_openrouter_20261111T014441360490",
+  "run_id": "v3_B_group_openrouter_20261111T091833288768",
   "version": "v3",
-  "artifact_version": "v3+p90e5ccb74af1+t492311ce6a2d",
+  "artifact_version": "v3+p90e5ccb74af1+t9231a21349f9",
   "prompt_hash": "90e5ccb74af12ca6bf8d6038da33478aa53fa1e2ca46d9277f24c570e972387c",
-  "tools_hash": "492311ce6a2d6227a28617b1212a5bf73aa65ce66588657114ecd3cc4b6cb38e",
+  "tools_hash": "9231a21349f9af032a885efa043556c66f953c20a524ada266a8ebea3a243eb9",
   "phase": "B",
   "suite": "group",
   "provider": "openrouter",
@@ -14,22 +14,18 @@
   "dataset_id": "day03_v2_research_group",
   "dataset_role": "group",
   "description": "Case do NHÓM tự viết thêm để cover thêm trường hợp. Mỗi case cần: id, phase='B', query HOẶC turns, failure_type (thuộc allowed_failure_types), và expect (tool_calls[...] hoặc no_tool=true). Nên kèm metadata.what_it_tests.",
-  "generated_at": "2026-11-11T01:44:41",
+  "generated_at": "2026-11-11T09:18:33",
   "summary": {
     "total_cases": 10,
     "measured_cases": 10,
     "provider_error_cases": 0,
-    "passed_cases": 9,
-    "case_accuracy": 0.9,
-    "tool_routing_accuracy": 0.9,
-    "argument_accuracy": 0.9,
-    "multiturn_accuracy": 0.8,
-    "failure_counts": {
-      "wrong_arg_value": 1
-    },
-    "observed_mismatch_counts": {
-      "extra_tool_call": 1
-    }
+    "passed_cases": 10,
+    "case_accuracy": 1.0,
+    "tool_routing_accuracy": 1.0,
+    "argument_accuracy": 1.0,
+    "multiturn_accuracy": 1.0,
+    "failure_counts": {},
+    "observed_mismatch_counts": {}
   },
   "results": [
     {
@@ -93,88 +89,88 @@
             "timeframe": "month",
             "items": [
               {
-                "title": "Promise Robotics partners with D.R. Horton on physical AI for homebuilding - The Robot Report",
-                "url": "https://www.therobotreport.com/promise-robotics-partners-d-r-horton-physical-ai-homebuilding",
+                "title": "Top 10 robotics developments of October 2026 - The Robot Report",
+                "url": "https://www.therobotreport.com/top-10-robotics-developments-october-2026/",
                 "source": "therobotreport.com",
-                "summary": "Promise Robotics said its technology interprets existing home designs, generates production plans and robotic instructions, orchestrates manufacturing, and connects that production with site installation. Rather than automating isolated tasks, the company said it brings these capabilities together in one integrated environment. [...] Promise Robotics is not a vertically integrated developer or a home designer like Reframe Systems, Attar acknowledged. “We’re more about the advancements in robotics, and we’re here to scale when companies need to scale,” he said. [...] “At D.R. Horton, we are always looking for innovations that can help us improve how we build. We are continuously focused on improving cycle times, increasing production capacity, and bringing greater consistency and predictability to our operations,” said Brad Conlon, senior vice president for strategic growth and innovation at D.R. Horton. “Promise Robotics’ integrated platform gives us a new capability to support those goals.”",
-                "date": "Tue, 13 Oct 2026 13:00:05 GMT",
+                "summary": "# Top 10 robotics developments of October 2026. October 2026 was a whirlwind month for the robotics industry. In addition, prominent humanoid robot companies, such as Agility Robotics and Boston Dynamics, announced some major updates. AGCO to deploy Agility Digit humanoid in Kansas factory. In October 2026, AGCO and Agility Robotics signed a commercial agreement to deploy Agility’s Digit humanoid in AGCO’s manufacturing facility. Agility Robotics and GXO Logistics said they are expanding their partnership to deploy the Digit humanoid robot in GXO sites in North Carolina and Tennessee. Boston Dynamics in October 2026 gave a look at its new humanoid hand. Promise Robotics partners with D.R. Horton on physical AI for homebuilding in October 2026. Promise Robotics said it has signed a multi-year agreement with D.R. Horton, which will use its Factory-as-a-Service capabilities to produce more than 1,250 homes in the U.S. Read more. Boston Dynamics unveiled the newest hand for its Atlas humanoid in October 2026.",
+                "date": "Mon, 02 Nov 2026 17:56:42 GMT",
                 "section": "news",
                 "provider": "tavily"
               },
               {
-                "title": "Gemini Robotics 2.5: Accelerating Physical Intelligence — Google DeepMind",
-                "url": "https://deepmind.google/blog/gemini-robotics-2-5-accelerates-real-world-physical-intelligence",
-                "source": "deepmind.google",
-                "summary": "Today, we are introducing Gemini Robotics 2.5, our most capable vision-language-action (VLA) model to date. Gemini Robotics 2.5 increases both the breadth of skills a robot can learn and the speed at which it can acquire them. This enhances dexterity, reliability, and safety to help robots step out of the lab and into more unstructured, real-world environments, where they can assist people with a greater range of tasks. [...] Using our embodied reasoning model (Gemini Robotics ER) to keep track of the workflow, and the Gemini Robotics 2.5 actions model to control its hands and arms, the robot reaches into supply bins, picks up metal automotive brackets, and places them into sequencing containers, all while correcting for any gaps. Achieving a 96% success rate, this pilot shows promising progress toward widespread real-world industrial applications. [...] Gemini Robotics 2.5 uses inference-time reasoning guidance to steer around physical hazards in real-time. Much like safety classifiers add a protective layer around Gemini’s responses, this guidance allows the robot to navigate complex environments securely. In our evaluations, this capability boosted safe task completion around ob",
-                "date": "Tue, 10 Nov 2026 15:00:00 GMT",
+                "title": "DEEP Robotics Unveils Five Research Advances in Embodied AI - markets.businessinsider.com",
+                "url": "https://markets.businessinsider.com/news/stocks/deep-robotics-unveils-five-research-advances-in-embodied-ai-1036662099",
+                "source": "markets.businessinsider.com",
+                "summary": "BOSTON, Oct. 24, 2026 (GLOBE NEWSWIRE) -- DEEP Robotics has unveiled five research advances supporting the development of DEEPRobotics-Brain, its embodied intelligence architecture for real-world robot operation. Spanning physical prediction, navigation and manipulation, policy optimization, predictive memory, and data-driven evaluation, the research addresses a shared challenge: helping robots work reliably in environments that change. The five research areas comprise the DR-WM-1.0 world model, the DR-VLA-2.0 embodied foundation model, the DR-APO policy optimization framework, the DR-Agent embodied agent, and the DR-Benchmark data and evaluation platform. Together, the studies connect physical prediction, navigation and manipulation, policy learning, dynamic memory, and real-world data. The research supports DEEP Robotics’ broader goal of developing robots that can respond to human instructions and practical operating conditions, with capabilities evaluated through simulation, real-robot experiments, and shared benchmarks. Developed with researchers from Zhejiang University, the Beijing Institute of Technology, Tsinghua University, MIT, and the University of Illinois Urbana-Champa",
+                "date": "Sat, 24 Oct 2026 15:42:57 GMT",
                 "section": "news",
                 "provider": "tavily"
               },
               {
-                "title": "Gemini 4 Argon for Robotics - Google Developers Blog",
-                "url": "https://developers.googleblog.com/gemini-4-argon-for-robotics",
-                "source": "developers.googleblog.com",
-                "summary": "robotics that can work alongside humans to solve complex challenges.",
-                "date": "Tue, 13 Oct 2026 00:00:00 GMT",
+                "title": "RoboBusiness rebrands as Robotics Summit & Expo West - The Robot Report",
+                "url": "https://www.therobotreport.com/robobusiness-rebrands-as-robotics-summit-expo-west/",
+                "source": "therobotreport.com",
+                "summary": "# RoboBusiness rebrands as Robotics Summit & Expo West. Arrowfly, an award-winning B2B media and marketing company, today announced that RoboBusiness, the leading robotics industry event for the past 20 years, is being rebranded as Robotics Summit & Expo West, a conference and expo dedicated to the design, deployment, and scaling of commercial robots and businesses. “The robotics industry has matured, and the hardest problems have grown with it,” said Steve Crowe, executive editor of The Robot Report and chair of the Robotics Summit. Robotics Summit & Expo West will serve that community by sharing lessons from industry leaders on how to move from a pilot that works to a product deployed across multiple sites and building a business that can support it.”. Robotics Summit & Expo West is organized around the questions that define the post-prototype stage of a robotics company:. Robotics Summit & Expo West focuses on scaling the product and the company behind it.",
+                "date": "Tue, 20 Oct 2026 16:23:21 GMT",
                 "section": "news",
                 "provider": "tavily"
               },
               {
-                "title": "Gemini Robotics Embodied Reasoning 2 is now available on Google Cloud | Google Cloud Blog",
-                "url": "https://cloud.google.com/blog/products/ai-machine-learning/gemini-robotics-embodied-reasoning-2-is-now-available-on-google-cloud",
-                "source": "cloud.google.com",
-                "summary": "Earlier this year, we introduced Gemini Robotics 2 — our next-generation intelligence layer enabling robots to think, act, and adapt in the physical world. At the core of this breakthrough is Gemini Robotics Embodied Reasoning 2 (ER 2), a specialized Gemini model that serves as a robot’s high-level brain. Working across any robot embodiment — from stationary arms to full humanoids — Gemini Robotics ER 2 combines advanced spatial and temporal video understanding with long-horizon planning and [...] Gemini Robotics ER 2 transforms a robot into a physical agent. The model combines deep spatio-temporal reasoning and long-horizon planning, enabling robots to orchestrate steps to complete a task, self-correct, and generalize to novel situations. To build an agentic setup, developers can declare low-level control interfaces — like Vision-Language-Action (VLA) models or navigation APIs — as tools, and stream multimodal video, audio, or text directly into the model. [...] Today, we are bringing this same frontier embodied reasoning model to enterprise production environments: Gemini Robotics ER 2 is now available in public preview on the Gemini platform. For the first time, organizations ca",
-                "date": "Tue, 27 Oct 2026 22:00:03 GMT",
+                "title": "Neura Robotics launches multimodal AI model that gives robots perception and memory - Robotics & Automation News",
+                "url": "https://roboticsandautomationnews.com/2026/10/14/neura-robotics-launches-multimodal-ai-model-that-gives-robots-perception-and-memory/105902/",
+                "source": "roboticsandautomationnews.com",
+                "summary": "# Neura Robotics launches multimodal AI model that gives robots perception and memory. **Neura Robotics has launched Neuron AI, its multimodal foundation model for physical AI.**. Combining 3D vision, touch, audio, robot state and language with memory, Neuron AI enables robots to act on information beyond what cameras alone can capture, as well as retain relevant context when objects disappear from view. “With Neuron AI, we are building the brain of the physical world: Physical AI that turns human expertise and physical experience into capabilities robots can learn and apply. The additional senses also improve tasks that vision can already handle: in welding, for example, the quality of a seam can be judged from the sound of the process. Real-world robot data: Robots across different embodiments perform tasks in Neura Gyms, Neura’s training infrastructure for cognitive robots and Physical AI and real-world environments, generating synchronized vision, touch, force, audio and movement data.",
+                "date": "Wed, 14 Oct 2026 08:25:59 GMT",
                 "section": "news",
                 "provider": "tavily"
               },
               {
-                "title": "@imFarhanAi Data is the real bottleneck for robotics. Glad to see someone tackling it head-on.",
-                "summary": "@imFarhanAi Data is the real bottleneck for robotics. Glad to see someone tackling it head-on.",
-                "url": "https://x.com/Bisma_hunn/status/2120225875207901395",
+                "title": "🎄 Calling all makers and robotics enthusiasts!\nCome join RDK COMMUNITY BUILD: Xmas Robots and turn your ideas ",
+                "summary": "🎄 Calling all makers and robotics enthusiasts!\nCome join RDK COMMUNITY BUILD: Xmas Robots and turn your ideas into something that actually moves!\n🤖 Build your project with RDK, share it with the community, and complete your project to receive some D-Robotics goodies! 🎁",
+                "url": "https://x.com/BellaaiZR/status/2120340169601810809",
                 "source": "x.com",
                 "section": "social",
                 "provider": "rapidapi",
-                "date": "Tue Nov 10 18:43:35 +0000 2026",
+                "date": "Wed Nov 11 02:17:45 +0000 2026",
                 "metrics": {
                   "likes": 0,
                   "retweets": 0
                 }
               },
               {
-                "title": "not every ai model can work out of the box in a real-world environment.\n\na robot, factory or research lab need",
-                "summary": "not every ai model can work out of the box in a real-world environment.\n\na robot, factory or research lab needs a model that actually understands its specific setup.\n\nthat's what hedra model factory is built for:\n\n→ bring your own simulator and data\n→ work with ai scientists and hedra researchers to train a custom model\n→ deploy it directly on your device\n→ use real-world feedback to improve the next version\ncovering everything from robotics and manufacturing to biology and defense.",
-                "url": "https://x.com/aditiitwt/status/2120225804219191799",
+                "title": "(3/4) The final part is about founders and execs who are around and down to chat:\n\n@changanvr (Rhoda AI), @jar",
+                "summary": "(3/4) The final part is about founders and execs who are around and down to chat:\n\n@changanvr (Rhoda AI), @jaradcannon (Humanoid), @SohaPouya (NVIDIA), @NimaGard (Path Robotics), @kevinmpeterson1 (Bedrock Robotics), @JacobZietek (Ixian Robotics) and @JasonMa2020 (Dyna Robotics).\n\nSeveral of their teams are hiring too, so go to their booth or just DM to meet!",
+                "url": "https://x.com/walnutai_/status/2120340117436940679",
                 "source": "x.com",
                 "section": "social",
                 "provider": "rapidapi",
-                "date": "Tue Nov 10 18:43:18 +0000 2026",
-                "metrics": {
-                  "likes": 1,
-                  "retweets": 0
-                }
-              },
-              {
-                "title": "Agility Robotics exec talks plans to double Pittsburgh workforce after Nasdaq debut https://t.co/pcO5rQRdVb",
-                "summary": "Agility Robotics exec talks plans to double Pittsburgh workforce after Nasdaq debut https://t.co/pcO5rQRdVb",
-                "url": "https://x.com/WPXI/status/2120225443064201716",
-                "source": "x.com",
-                "section": "social",
-                "provider": "rapidapi",
-                "date": "Tue Nov 10 18:41:52 +0000 2026",
+                "date": "Wed Nov 11 02:17:32 +0000 2026",
                 "metrics": {
                   "likes": 0,
                   "retweets": 0
                 }
               },
               {
-                "title": "@thegreatola Reminder set for Thursday \n\nAll in for robotics advancement",
-                "summary": "@thegreatola Reminder set for Thursday \n\nAll in for robotics advancement",
-                "url": "https://x.com/DegenSage/status/2120225904098230426",
+                "title": "@SmaeiliVahid Robotics just keeps getting smarter.",
+                "summary": "@SmaeiliVahid Robotics just keeps getting smarter.",
+                "url": "https://x.com/0x0217/status/2120339912994230537",
                 "source": "x.com",
                 "section": "social",
                 "provider": "rapidapi",
-                "date": "Tue Nov 10 18:43:42 +0000 2026",
+                "date": "Wed Nov 11 02:16:43 +0000 2026",
+                "metrics": {
+                  "likes": 0,
+                  "retweets": 0
+                }
+              },
+              {
+                "title": "I will miss them, but I think Tesla's time being viewed as a car and battery technology company is winding dow",
+                "summary": "I will miss them, but I think Tesla's time being viewed as a car and battery technology company is winding down.  Their time as a robotics, battery and AI company has been on the upswing.  The bigger plan was always about Mars and beyond.  \n\nNot saying I'm happy about it or anything, but if you can make say travel accessible to kids at a young age, there's less desire to drive later.  I'm not sure about anyone else, but for me, getting my driver's license was like unlocking a new layer of freedom at 16.  The gate would cease to exist in a world where a child can use their allowance to get a safe ride to school or practice or a friend's house.  \n\nMusk wanted to show the world that electric vehicles could be consumer grade because he believed that the carbon emissions from gas cars were an environmental experiment we shouldn't be doing.  Middle age and older drivers have mostly rejected th",
+                "url": "https://x.com/nathancrowe/status/2120339795876491433",
+                "source": "x.com",
+                "section": "social",
+                "provider": "rapidapi",
+                "date": "Wed Nov 11 02:16:16 +0000 2026",
                 "metrics": {
                   "likes": 0,
                   "retweets": 0
@@ -183,24 +179,24 @@
             ],
             "signals": {
               "news_results": 4,
-              "news_domains": 4,
+              "news_domains": 3,
               "x_post_results": 4,
               "shared_terms": [
                 "ai",
-                "all",
-                "directly",
-                "environment",
-                "improve",
+                "around",
+                "be",
+                "being",
+                "beyond",
+                "community",
+                "company",
+                "has",
+                "have",
+                "humanoid",
+                "into",
                 "it",
-                "its",
-                "lab",
-                "manufacturing",
-                "model",
-                "next",
-                "not",
-                "out",
-                "plans",
-                "real"
+                "new",
+                "robotics",
+                "robots"
               ]
             },
             "status": "ok",
@@ -265,6 +261,14 @@
             "claim": "Urban tree cover can lower neighborhood surface temperatures during heat waves.",
             "items": [
               {
+                "title": "Urban Heat Islands: Why Our Cities Are Heating Up and How We Can Cool Them Down",
+                "url": "https://www.seasidesustainability.org/post/urban-heat-islands-why-our-cities-are-heating-up-and-how-we-can-cool-them-down",
+                "source": "seasidesustainability.org",
+                "summary": "A University of Wisconsin study found that well-planned tree cover can lower surface temperatures by up to 10°F.",
+                "relevance_score": 0.5,
+                "extraction_provider": "search_snippet"
+              },
+              {
                 "title": "Cooling Potential of Urban Trees | World Resources Institute",
                 "url": "https://www.wri.org/insights/urban-trees-cooling-potential",
                 "source": "wri.org",
@@ -273,27 +277,19 @@
                 "extraction_provider": "search_snippet"
               },
               {
-                "title": "First in Science: City Trees Can Reduce Urban Heat Island Effect | National Caucus of Environmental Legislators",
-                "url": "http://ncelenviro.org/articles/first-in-science-city-trees-can-reduce-urban-heat-island-effect",
-                "source": "ncelenviro.org",
-                "summary": "Resources: [...] The urban heat island effect is well documented and increasing green spaces and tree cover can help to mitigate those impacts.",
+                "title": "Urban Heat Islands 101",
+                "url": "https://www.rff.org/publications/explainers/urban-heat-islands-101",
+                "source": "rff.org",
+                "summary": "These urban surfaces quickly heat up during the day and slowly release heat at night, contributing to higher temperatures around the clock in cities.",
                 "relevance_score": 0.4,
                 "extraction_provider": "search_snippet"
               },
               {
-                "title": "Urban ‘heat islands’ would be twice as hot without city trees",
-                "url": "https://www.nature.org/en-us/newsroom/urban-heat-islands-twice-as-hot-without-city-trees",
-                "source": "nature.org",
-                "summary": "Led by The Nature Conservancy (TNC) and published in Nature Communications, the paper pools data from nearly 9,000 large cities worldwide – collectively home to ~3.6 billion people – to find that tree cover currently mitigates nearly half (~48.6%) of the UHI effect that occurs when man-made surfaces like roads, buildings and car parks absorb and release heat from the sun, causing urban areas to heat up more than surr",
-                "relevance_score": 0.4,
-                "extraction_provider": "search_snippet"
-              },
-              {
-                "title": "Trees halve urban heat island effect globally but unequal benefits only modestly mitigate climate-change warming | Nature Communications",
-                "url": "https://www.nature.com/articles/s41467-026-71825-x",
+                "title": "Neighborhood-scale reductions in heatwave burden projected under a 30% minimum tree cover scenario | npj Urban Sustainability",
+                "url": "https://www.nature.com/articles/s42949-025-00219-7?fromPaywallRec=false",
                 "source": "nature.com",
-                "summary": "Although tree cover reduces the urban heat island, no global estimate quantifies air temperature reductions by contemporary or future tree cover, currently and with climate change.",
-                "relevance_score": 0.4,
+                "summary": "The scenario focused on establishing functional urban forests, with additional canopy placed over permeable surfaces to enhance stormwater [...] considers green cooling services that arise directly due to evapotranspiration as well as indirectly due to shading from the tree canopy, which reduces radiation heating impervious surfaces and their contribution to urban heat islands.",
+                "relevance_score": 0.3,
                 "extraction_provider": "search_snippet"
               }
             ],
@@ -428,16 +424,19 @@
                 {
                   "title": "EU adopts new AI Act rules",
                   "url": "https://example.com/ai-act",
+                  "source": "example.com",
                   "summary": "The report describes obligations under the AI Act."
                 },
                 {
                   "title": "New AI rules for providers",
                   "url": "https://example.org/ai-rules",
+                  "source": "example.org",
                   "summary": "The article explains compliance duties for providers."
                 },
                 {
                   "title": "Research labs update safety practices",
                   "url": "https://example.net/ai-safety",
+                  "source": "example.net",
                   "summary": "The article describes updated safety processes."
                 }
               ],
@@ -460,16 +459,19 @@
               {
                 "title": "EU adopts new AI Act rules",
                 "url": "https://example.com/ai-act",
+                "source": "example.com",
                 "summary": "The report describes obligations under the AI Act."
               },
               {
                 "title": "New AI rules for providers",
                 "url": "https://example.org/ai-rules",
+                "source": "example.org",
                 "summary": "The article explains compliance duties for providers."
               },
               {
                 "title": "Research labs update safety practices",
                 "url": "https://example.net/ai-safety",
+                "source": "example.net",
                 "summary": "The article describes updated safety processes."
               }
             ],
@@ -486,21 +488,23 @@
       ]
     },
     {
-      "id": "G05_lookup_general_documentation",
+      "id": "G05_rss_feed_reader_direct",
       "phase": "B",
       "suite": "group",
       "case_suite": "group",
       "is_multiturn": false,
       "metadata": {
-        "what_it_tests": "Tests that a request for evergreen technical documentation uses general web lookup rather than a news search."
+        "what_it_tests": "Routes a direct RSS feed URL request to rss_feed_reader instead of fetch or lookup, preserving url, max_items, and optional keyword filter."
       },
-      "input": "Find authoritative general documentation explaining OAuth 2.0 authorization code flow with PKCE. I want technical references, not current news.",
+      "input": "Read the latest 4 articles from the RSS feed at https://openai.com/news/rss.xml, filtering only items mentioning 'safety'. Read the RSS XML feed directly instead of running a general web search or HTML page scrape.",
       "expect": {
         "tool_calls": [
           {
-            "name": "lookup",
+            "name": "rss_feed_reader",
             "args": {
-              "topic": "general"
+              "url": "https://openai.com/news/rss.xml",
+              "max_items": 4,
+              "keyword": "safety"
             }
           }
         ]
@@ -511,66 +515,63 @@
         "args_correct": true,
         "actual_tool_calls": [
           {
-            "name": "lookup",
+            "name": "rss_feed_reader",
             "args": {
-              "query": "OAuth 2.0 authorization code flow with PKCE",
-              "topic": "general"
+              "url": "https://openai.com/news/rss.xml",
+              "max_items": 4,
+              "keyword": "safety"
             }
           }
         ],
         "actual_text": null,
-        "case_failure_type": "wrong_arg_value",
+        "case_failure_type": "wrong_tool",
         "observed_mismatch": null,
         "failure_type": null,
         "failures": []
       },
       "tool_results": [
         {
-          "tool": "lookup",
+          "tool": "rss_feed_reader",
           "args": {
-            "query": "OAuth 2.0 authorization code flow with PKCE",
-            "topic": "general"
+            "url": "https://openai.com/news/rss.xml",
+            "max_items": 4,
+            "keyword": "safety"
           },
           "result": {
-            "tool": "web_search",
-            "query": "OAuth 2.0 authorization code flow with PKCE",
-            "topic": "general",
-            "timeframe": "week",
+            "tool": "rss_feed_reader",
+            "status": "ok",
+            "feed_url": "https://openai.com/news/rss.xml",
+            "feed_title": "OpenAI News",
+            "feed_type": "rss",
+            "count": 4,
             "items": [
               {
-                "title": "OAuth2 authorization code flow | Ory",
-                "url": "https://www.ory.com/docs/oauth2-oidc/authorization-code-flow",
-                "source": "ory.com",
-                "summary": "Single page applications (SPAs) typically use a public client model, where the client ID is publicly known. In this scenario, the Authorization Code flow with PKCE can be used to provide a secure authorization and authentication mechanism.\n\nIn this example, we use a standard HTTPS redirect (` to receive the authorization code after the user has granted permission. We also generate a random code verifier and transform it into a code challenge using the SHA-256 hash algorithm. [...] ## Perform PKCE​\n\nPKCE (Proof Key for Code Exchange) is a security extension to the Authorization Code flow that is designed to prevent code injection attacks. In the PKCE flow, the client generates a random code verifier and transforms it into a code challenge that is sent to the Authorization Server. The Authorization Server uses the code challenge to validate the authorization code.\n\ninfo [...] Mobile and native applications cannot store client secrets securely, so they are typically considered public clients. In this scenario, the Authorization Code flow with PKCE can be used to provide a secure authorization and authentication mechanism.",
-                "score": 0.91156644
+                "title": "Control Room: A central system to track and stop model workloads across our research infrastructure",
+                "url": "https://openai.com/index/control-room",
+                "source": "openai.com",
+                "published": "Mon, 09 Nov 2026 13:00:00 GMT",
+                "summary": "Learn how OpenAI’s Control Room tracks model workloads across our research infrastructure and can rapidly stop them when safety or security concerns arise."
               },
               {
-                "title": "Never Share Your Password Again — The OAuth 2.0 Solution - Stack Overflow",
-                "url": "https://stackoverflow.blog/2026/11/09/never-share-your-password-again-the-oauth-2-0-solution",
-                "source": "stackoverflow.blog",
-                "summary": "The modern standard is Authorization Code with PKCE. Five steps. 1. The app redirects the user to the authorization server.\n\n`\n\n`?response_type=code`\n\n`&client_id=budgettrack-prod`\n\n`&redirect_uri=\n\n`&scope=calendar.read`\n\n`&state=xY7f3aQ2`\n\n`&code_challenge=E9Melhoa2OwvFrEMTJguCHaoeK1t8URWbuGJSstw-cM &code_challenge_method=S256`\n\n2. The user authenticates on the auth server's own domain. [...] code\\_challenge + code\\_verifier PKCE (Proof Key for Code Exchange). The app generates a random code\\_verifier, hashes it with SHA-256 to produce the code\\_challenge sent in step 1, then presents the original code\\_verifier when exchanging the code in step 4. This defeats any attacker who intercepts the authorization code without the matching code\\_verifier, the stolen code is worthless. Required for mobile apps and SPAs; strongly recommended everywhere else. [...] Summary - OAuth 2.0 exists so a user can grant a third-party app scoped, time limited, revocable access to their account without ever handing over their password. Everything else in the protocol code exchanges, refresh tokens, PKCE, scopes, discovery is machinery in service of that one principle.\n\nThese articles are licensed under a Creative Commons Attribution-ShareAlike 4.0 International license.\n\ncreativecommons.org/licenses/by-sa/4.0/deed.en\n\n## Add to the discussion",
-                "score": 0.8652358
+                "title": "Community safety report and new protections for teens",
+                "url": "https://openai.com/index/community-safety-report-and-new-protections-for-teens",
+                "source": "openai.com",
+                "published": "Fri, 30 Oct 2026 09:00:00 GMT",
+                "summary": "OpenAI is strengthening violence prevention in ChatGPT with expanded safeguards, earlier interventions, and a new commitment to public safety reporting."
               },
               {
-                "title": "Is Client Secret required when using OAuth with PKCE? - Uncategorized - Google AI Developers Forum",
-                "url": "https://discuss.ai.google.dev/t/is-client-secret-required-when-using-oauth-with-pkce/198403",
-                "source": "discuss.ai.google.dev",
-                "summary": "# Is Client Secret required when using OAuth with PKCE?\n\nHi,\n\nWe’re integrating our MCP server with Google Gemini Connected Apps using OAuth 2.0 Authorization Code flow with PKCE.\n\nWe noticed that the Google Connected Apps setup requires a Client Secret, while other MCP clients, such as Claude, allow it to be omitted when using PKCE.\n\nAccording to your documentation:\n\nPKCE is supported and used to secure the authorization code exchange. [...] The Client Secret is marked as optional for pre-registered clients.\n\nWe’d like to understand:\n\nIs there a reason Google requires a Client Secret even when PKCE is enabled?\n\nDoes Google support a public OAuth client (without a Client Secret) with Authorization Code + PKCE?\n\nIf the Client Secret field is mandatory in the UI, is there a supported way to use PKCE without an actual secret?\n\nWe’d prefer not to introduce a Client Secret if PKCE already provides the required protection.\n\nThanks! [...] Powered by Discourse, best viewed with JavaScript enabled",
-                "score": 0.8512743
+                "title": "OpenAI and Poland’s NASK partner to advance AI safety and security",
+                "url": "https://openai.com/index/openai-nask-ai-safety-security-partnership",
+                "source": "openai.com",
+                "published": "Fri, 23 Oct 2026 00:00:00 GMT",
+                "summary": "OpenAI and Poland’s NASK are partnering on AI safety, security, and technical research to strengthen safeguards and support a more resilient digital ecosystem."
               },
               {
-                "title": "OAuth 2.0 Authorization | YouTrack Developer Portal Documentation",
-                "url": "https://www.jetbrains.com/help/youtrack/devportal/OAuth-authorization-in-youtrack.html",
-                "source": "jetbrains.com",
-                "summary": "Use OAuth 2.0 when your application needs users to authorize access to YouTrack. For scripts and integrations that don't require interactive user authorization, use a permanent token.\n\n For new applications, use the Authorization Code flow with PKCE when possible.\n Use implicit authorization only for browser-based clients that can't use the Authorization Code flow.\n\n## Availability [...] ## OAuth Clients\n\nAn OAuth client registration identifies an application to the Hub service and defines how the application can request access to YouTrack. REST API integrations, MCP clients, and other applications that support OAuth can use these registrations.\n\nEach registered application has a client ID. Confidential clients also use a client secret. For new integrations, public clients should use the Authorization Code flow with PKCE without a client secret. [...] | YouTrack Server connected to an external Hub service | Available OAuth 2.0 authorization flows are determined by the external Hub service. Availability depends on the Hub version and configuration. For details, see the Hub documentation. |",
-                "score": 0.8479807
-              },
-              {
-                "title": "How Clerk implements OAuth | Clerk Docs",
-                "url": "https://clerk.com/docs/guides/configure/auth-strategies/oauth/how-clerk-implements-oauth",
-                "source": "clerk.com",
-                "summary": "OAuth 2.1⁠ requires PKCE for all clients that use the authorization code flow, including public and confidential clients.\n\nTo enforce PKCE for every manually registered and dynamically registered OAuth application, enable the instance-level Require PKCE setting. This applies to both public and confidential applications and takes precedence over their individual settings. CIMD clients always require the `S256` method, regardless of the instance or application settings.\n\nWarning [...] Warning\n\nEnabling Require PKCE will reject authorization requests from clients that omit PKCE or use a method other than `S256`. Authorization codes issued before enabling the setting remain valid, as do existing refresh tokens. See PKCE Code Challenge Methods⁠ for registered methods. [...] However, this process means public clients often need an additional layer of security to protect against interception attacks. This is where PKCE⁠ comes in - PKCE helps secure public clients by replacing the `client_secret` with a dynamically generated proof that only the client who started the OAuth flow can provide.",
-                "score": 0.82288796
+                "title": "Towards safety cases for frontier AI training",
+                "url": "https://openai.com/index/towards-safety-cases-for-frontier-ai-training",
+                "source": "openai.com",
+                "published": "Mon, 28 Sep 2026 19:00:00 GMT",
+                "summary": "Our early guidelines for safety cases in frontier AI training cover technical safeguards, operational practices, and investigating misalignment incidents"
               }
             ]
           }
@@ -711,20 +712,10 @@
         ]
       },
       "result": {
-        "passed": false,
-        "routing_correct": false,
-        "args_correct": false,
+        "passed": true,
+        "routing_correct": true,
+        "args_correct": true,
         "actual_tool_calls": [
-          {
-            "name": "topic_radar",
-            "args": {
-              "query": "robotics",
-              "timeframe": "week",
-              "limit": 3,
-              "include_social": false,
-              "enrich_articles": false
-            }
-          },
           {
             "name": "topic_radar",
             "args": {
@@ -738,66 +729,11 @@
         ],
         "actual_text": null,
         "case_failure_type": "wrong_arg_value",
-        "observed_mismatch": "extra_tool_call",
-        "failure_type": "wrong_arg_value",
-        "failures": [
-          "extra tool call topic_radar"
-        ]
+        "observed_mismatch": null,
+        "failure_type": null,
+        "failures": []
       },
       "tool_results": [
-        {
-          "tool": "topic_radar",
-          "args": {
-            "query": "robotics",
-            "timeframe": "week",
-            "limit": 3,
-            "include_social": false,
-            "enrich_articles": false
-          },
-          "result": {
-            "tool": "topic_radar",
-            "query": "robotics",
-            "timeframe": "week",
-            "items": [
-              {
-                "title": "Serve Robotics launches new business to become the AWS for robots | TechCrunch",
-                "url": "https://techcrunch.com/2026/11/05/serve-robotics-launches-new-business-to-become-the-aws-for-robots",
-                "source": "techcrunch.com",
-                "summary": "Serve Robotics, a maker of self-driving sidewalk delivery robots, is expanding beyond its autonomous delivery operations in a bid to become a technology supplier to other companies building robots.\n\nThe company, which spun out of Uber’s acquisition of Postmates in 2021 and went public in 2024, said Thursday it will launch a new business line called Physical AI Services. [...] Specifically, Serve Robotics will offer customers its connectivity and data tools. Bedrock Robotics, a startup developing self-driving systems for construction equipment, is a customer, according to Serve. It’s also working with T-Mobile to bring AI computing power closer to robots, Serve announced alongside its third-quarter earnings on Thursday.\n\n“We are solving the problem of robots in human spaces,” Serve Robotics CEO and co-founder Ai Kashani told TechCrunch. [...] Serve Robotics already makes two kinds of robots, the cute googly-eyed sidewalk delivery robot and one designed for hospitals that it got through its acquisition of Diligent Robotics.\n\nThose businesses are not going away, Kashani emphasized in a recent interview. Instead, he said there is opportunity to sell the technology it developed for its ",
-                "date": "Thu, 05 Nov 2026 21:15:00 GMT",
-                "section": "news",
-                "provider": "tavily"
-              },
-              {
-                "title": "Top Robotics Stocks With Strong Potential for Long-Term Growth",
-                "url": "https://finance.yahoo.com/markets/stocks/articles/top-robotics-stocks-strong-potential-153300390.html",
-                "source": "finance.yahoo.com",
-                "summary": "Robotics posted its best third-quarter revenues on record and turned profitable, reinforcing management's view of multiple growth engines heading into 2027. Fourth-quarter guidance points to continued demand across the AI value chain, from memory and interconnect test to robotics deployments. With an expanding, AI-ready robotics platform now generating profitable revenues, this Zacks Rank #1 company's near-term fundamental trajectory looks constructive. [...] Robotic Vehicle continues toward geosynchronous orbit, and Orbital Robotics is preparing robotic arms for NASA's Astrobee free-flyers aboard the International Space Station. Quantum-robotics fusion remains early, though Q-CTRL moved its GPS-free quantum magnetic navigation trials from aircraft to maritime platforms in the Pacific in October. [...] The Robotics Screen makes it easy to identify high-potential stocks at any given time, just like the ones discussed below. Leveraging advanced tools, the thematic screens identify companies shaping the future, making it easier to capitalize on emerging trends.  \n  \nReady to uncover more transformative thematic investment ideas? Explore 30 cutting-edge investment themes with Zacks The",
-                "date": "Thu, 05 Nov 2026 15:00:00 GMT",
-                "section": "news",
-                "provider": "tavily"
-              },
-              {
-                "title": "Gemini Robotics 2.5: Accelerating Physical Intelligence — Google DeepMind",
-                "url": "https://deepmind.google/blog/gemini-robotics-2-5-accelerates-real-world-physical-intelligence",
-                "source": "deepmind.google",
-                "summary": "Today, we are introducing Gemini Robotics 2.5, our most capable vision-language-action (VLA) model to date. Gemini Robotics 2.5 increases both the breadth of skills a robot can learn and the speed at which it can acquire them. This enhances dexterity, reliability, and safety to help robots step out of the lab and into more unstructured, real-world environments, where they can assist people with a greater range of tasks. [...] Using our embodied reasoning model (Gemini Robotics ER) to keep track of the workflow, and the Gemini Robotics 2.5 actions model to control its hands and arms, the robot reaches into supply bins, picks up metal automotive brackets, and places them into sequencing containers, all while correcting for any gaps. Achieving a 96% success rate, this pilot shows promising progress toward widespread real-world industrial applications. [...] Gemini Robotics 2.5 uses inference-time reasoning guidance to steer around physical hazards in real-time. Much like safety classifiers add a protective layer around Gemini’s responses, this guidance allows the robot to navigate complex environments securely. In our evaluations, this capability boosted safe task completion around ob",
-                "date": "Tue, 10 Nov 2026 15:00:00 GMT",
-                "section": "news",
-                "provider": "tavily"
-              }
-            ],
-            "signals": {
-              "news_results": 3,
-              "news_domains": 3,
-              "x_post_results": 0,
-              "shared_terms": []
-            },
-            "status": "ok",
-            "warnings": [],
-            "note": "These are small API samples; counts and overlap are not proof of popularity or truth."
-          }
-        },
         {
           "tool": "topic_radar",
           "args": {
@@ -813,11 +749,11 @@
             "timeframe": "week",
             "items": [
               {
-                "title": "Serve Robotics launches new business to become the AWS for robots | TechCrunch",
-                "url": "https://techcrunch.com/2026/11/05/serve-robotics-launches-new-business-to-become-the-aws-for-robots",
-                "source": "techcrunch.com",
-                "summary": "Serve Robotics, a maker of self-driving sidewalk delivery robots, is expanding beyond its autonomous delivery operations in a bid to become a technology supplier to other companies building robots.\n\nThe company, which spun out of Uber’s acquisition of Postmates in 2021 and went public in 2024, said Thursday it will launch a new business line called Physical AI Services. [...] Specifically, Serve Robotics will offer customers its connectivity and data tools. Bedrock Robotics, a startup developing self-driving systems for construction equipment, is a customer, according to Serve. It’s also working with T-Mobile to bring AI computing power closer to robots, Serve announced alongside its third-quarter earnings on Thursday.\n\n“We are solving the problem of robots in human spaces,” Serve Robotics CEO and co-founder Ai Kashani told TechCrunch. [...] Serve Robotics already makes two kinds of robots, the cute googly-eyed sidewalk delivery robot and one designed for hospitals that it got through its acquisition of Diligent Robotics.\n\nThose businesses are not going away, Kashani emphasized in a recent interview. Instead, he said there is opportunity to sell the technology it developed for its ",
-                "date": "Thu, 05 Nov 2026 21:15:00 GMT",
+                "title": "Recent advances in AI are creating a 'paradigm shift' for robotics - Berkeley News",
+                "url": "https://news.berkeley.edu/2026/11/09/recent-advances-in-ai-are-creating-a-paradigm-shift-for-robotics",
+                "source": "news.berkeley.edu",
+                "summary": "Traditionally, engineers can directly program the software that tells robots how to perceive objects, plan movements and control their actions, a process called model-based robotics. Or, with model-free robotics, they can train robots to learn behaviors from demonstrations through imitation learning. The first approach requires extensive engineering, while the second needs enormous amounts of data and time. [...] “Robots are advancing quickly, but developing them for real-world environments remains slow, data-intensive and difficult to scale,” Huang said. “Working with UC Berkeley, NVIDIA is helping advance a new approach combining agentic AI, simulation and open industrial task-focused benchmarks to help developers rapidly test and improve robot behavior before deployment.” [...] Earlier this year, he and his team began experimenting with a change to the way the robot code is organized. Using a framework they called Graph-as-Policy, robot tasks are segmented into individual skills, such as finding an object, planning a grasp and moving the gripper without collisions. Goldberg likened it to individual building blocks that fit together into something much larger.",
+                "date": "Mon, 09 Nov 2026 14:00:00 GMT",
                 "section": "news",
                 "provider": "tavily"
               },
@@ -825,54 +761,54 @@
                 "title": "Top Robotics Stocks With Strong Potential for Long-Term Growth",
                 "url": "https://finance.yahoo.com/markets/stocks/articles/top-robotics-stocks-strong-potential-153300390.html",
                 "source": "finance.yahoo.com",
-                "summary": "Robotics posted its best third-quarter revenues on record and turned profitable, reinforcing management's view of multiple growth engines heading into 2027. Fourth-quarter guidance points to continued demand across the AI value chain, from memory and interconnect test to robotics deployments. With an expanding, AI-ready robotics platform now generating profitable revenues, this Zacks Rank #1 company's near-term fundamental trajectory looks constructive. [...] Robotic Vehicle continues toward geosynchronous orbit, and Orbital Robotics is preparing robotic arms for NASA's Astrobee free-flyers aboard the International Space Station. Quantum-robotics fusion remains early, though Q-CTRL moved its GPS-free quantum magnetic navigation trials from aircraft to maritime platforms in the Pacific in October. [...] The Robotics Screen makes it easy to identify high-potential stocks at any given time, just like the ones discussed below. Leveraging advanced tools, the thematic screens identify companies shaping the future, making it easier to capitalize on emerging trends.  \n  \nReady to uncover more transformative thematic investment ideas? Explore 30 cutting-edge investment themes with Zacks The",
+                "summary": "With orders accelerating, humanoid pilots becoming contracts, surgical robotics gaining regulatory clarity and defense autonomy topping budget priorities, U.S. robotics enters 2027 with diversified demand drivers, positioning sector leaders well as adoption scales across factories, hospitals and homes. [...] U.S. robotics stocks enter the final stretch of 2026 on firmer footing, as September through early November brought a wave of commercial deployments, regulatory progress and government funding signals. North American robot orders hit their strongest quarter of the year, humanoids moved from demos toward contracted factory work, the FDA outlined a clearer path for surgical robots, and the Pentagon made autonomy a top budget priority. Together, these developments point to a broadening demand base [...] U.S. robotics demand strengthened through the fall. The Association for Advancing Automation reported that North American companies ordered 10,989 robots worth $723.5 million in the third quarter of 2026, up 24.8% year over year, with semiconductor and electronics orders nearly doubling. Humanoids moved closer to factory floors as Boston Dynamics opened its Robotics Metaplant Appli",
                 "date": "Thu, 05 Nov 2026 15:00:00 GMT",
                 "section": "news",
                 "provider": "tavily"
               },
               {
-                "title": "Gemini Robotics 2.5: Accelerating Physical Intelligence — Google DeepMind",
-                "url": "https://deepmind.google/blog/gemini-robotics-2-5-accelerates-real-world-physical-intelligence",
-                "source": "deepmind.google",
-                "summary": "Today, we are introducing Gemini Robotics 2.5, our most capable vision-language-action (VLA) model to date. Gemini Robotics 2.5 increases both the breadth of skills a robot can learn and the speed at which it can acquire them. This enhances dexterity, reliability, and safety to help robots step out of the lab and into more unstructured, real-world environments, where they can assist people with a greater range of tasks. [...] Using our embodied reasoning model (Gemini Robotics ER) to keep track of the workflow, and the Gemini Robotics 2.5 actions model to control its hands and arms, the robot reaches into supply bins, picks up metal automotive brackets, and places them into sequencing containers, all while correcting for any gaps. Achieving a 96% success rate, this pilot shows promising progress toward widespread real-world industrial applications. [...] Gemini Robotics 2.5 uses inference-time reasoning guidance to steer around physical hazards in real-time. Much like safety classifiers add a protective layer around Gemini’s responses, this guidance allows the robot to navigate complex environments securely. In our evaluations, this capability boosted safe task completion around ob",
-                "date": "Tue, 10 Nov 2026 15:00:00 GMT",
+                "title": "Inside App State’s Robotics Lab: Students explore the future of human–robot collaboration | Appalachian Today",
+                "url": "https://today.appstate.edu/2026/11/04/robotics",
+                "source": "today.appstate.edu",
+                "summary": "Students work with a variety of robotic platforms, including robotic arms that handle objects, humanoid robots such as Pepper and NAO that are designed to interact with people and mobile robots that can move through an environment while manipulating objects. These platforms help students explore how robot behavior, movement and communication influence interactions with people. [...] Current lab projects focus on helping robots better understand and respond to the people around them. Researchers are investigating how robots can adapt their behavior over time, work safely alongside people and use different types of information to make more informed decisions.\n\nOne research area examines how robots can adjust their actions as people move nearby, an important challenge in workplaces where humans and robots share the same space. [...] This brief video offers a behind-the-scenes look at the Yeganeh Robotics (YeRo) Lab in App State’s College of Arts and Sciences. Demonstrations include a Go2 quadruped robot, often called a “robot dog,” navigating its surroundings while maintaining balance, and a robotic arm transferring an object between locations on a workbench. These examples illustrate",
+                "date": "Wed, 04 Nov 2026 09:00:00 GMT",
                 "section": "news",
                 "provider": "tavily"
               },
               {
-                "title": "1/ Our cameras recorded perfectly.\n\nCrisp. Stable. Hours of footage.\n\nOf a wall. 🧵\n\n#PhysicalAI #Robotics\n\nhtt",
-                "summary": "1/ Our cameras recorded perfectly.\n\nCrisp. Stable. Hours of footage.\n\nOf a wall. 🧵\n\n#PhysicalAI #Robotics\n\nhttps://t.co/vYyFcGz6DF https://t.co/y8CW9xlyx6",
-                "url": "https://x.com/erpriyankpatel/status/2120226053415415992",
+                "title": "🎄 Calling all makers and robotics enthusiasts!\nCome join RDK COMMUNITY BUILD: Xmas Robots and turn your ideas ",
+                "summary": "🎄 Calling all makers and robotics enthusiasts!\nCome join RDK COMMUNITY BUILD: Xmas Robots and turn your ideas into something that actually moves!\n🤖 Build your project with RDK, share it with the community, and complete your project to receive some D-Robotics goodies! 🎁",
+                "url": "https://x.com/BellaaiZR/status/2120340169601810809",
                 "source": "x.com",
                 "section": "social",
                 "provider": "rapidapi",
-                "date": "Tue Nov 10 18:44:17 +0000 2026",
+                "date": "Wed Nov 11 02:17:45 +0000 2026",
                 "metrics": {
                   "likes": 0,
                   "retweets": 0
                 }
               },
               {
-                "title": "@dabblerer_ @claudeai @RoboColosseum @corl_conf there's a robotics architect building ultra low power silicon ",
-                "summary": "@dabblerer_ @claudeai @RoboColosseum @corl_conf there's a robotics architect building ultra low power silicon for physical ai who already benchmarks robot policies against jetson thor on the edge. just sent you a dm about an intro\nhttps://t.co/eYGYTZuYBX",
-                "url": "https://x.com/boardyai/status/2120226047023255688",
+                "title": "(3/4) The final part is about founders and execs who are around and down to chat:\n\n@changanvr (Rhoda AI), @jar",
+                "summary": "(3/4) The final part is about founders and execs who are around and down to chat:\n\n@changanvr (Rhoda AI), @jaradcannon (Humanoid), @SohaPouya (NVIDIA), @NimaGard (Path Robotics), @kevinmpeterson1 (Bedrock Robotics), @JacobZietek (Ixian Robotics) and @JasonMa2020 (Dyna Robotics).\n\nSeveral of their teams are hiring too, so go to their booth or just DM to meet!",
+                "url": "https://x.com/walnutai_/status/2120340117436940679",
                 "source": "x.com",
                 "section": "social",
                 "provider": "rapidapi",
-                "date": "Tue Nov 10 18:44:16 +0000 2026",
+                "date": "Wed Nov 11 02:17:32 +0000 2026",
                 "metrics": {
                   "likes": 0,
                   "retweets": 0
                 }
               },
               {
-                "title": "@Skybornfx Robotics is future bros 💪",
-                "summary": "@Skybornfx Robotics is future bros 💪",
-                "url": "https://x.com/DD____/status/2120226026022379635",
+                "title": "@SmaeiliVahid Robotics just keeps getting smarter.",
+                "summary": "@SmaeiliVahid Robotics just keeps getting smarter.",
+                "url": "https://x.com/0x0217/status/2120339912994230537",
                 "source": "x.com",
                 "section": "social",
                 "provider": "rapidapi",
-                "date": "Tue Nov 10 18:44:11 +0000 2026",
+                "date": "Wed Nov 11 02:16:43 +0000 2026",
                 "metrics": {
                   "likes": 0,
                   "retweets": 0
@@ -885,17 +821,20 @@
               "x_post_results": 3,
               "shared_terms": [
                 "ai",
-                "already",
-                "building",
-                "edge",
-                "future",
-                "just",
-                "our",
-                "physical",
-                "power",
-                "robot",
+                "around",
+                "final",
+                "humanoid",
+                "into",
+                "it",
+                "nvidia",
+                "path",
                 "robotics",
-                "there"
+                "robots",
+                "share",
+                "something",
+                "that",
+                "their",
+                "with"
               ]
             },
             "status": "ok",
@@ -977,35 +916,35 @@
                 "extraction_provider": "search_snippet"
               },
               {
-                "title": "The Future of Working Away from Work and Daily Travel - ROSA P",
-                "url": "https://rosap.ntl.bts.gov/view/dot/67225/dot_67225_DS1.pdf",
-                "source": "rosap.ntl.bts.gov",
-                "summary": "long hoped that increased remote work, sometimes called telecommuting or telework, will reduce driving, traffic congestion, and vehicle emissions.",
-                "relevance_score": 0.833,
-                "extraction_provider": "search_snippet"
-              },
-              {
                 "title": "Telework-induced urban sprawl and traffic congestion: a social discount rate analysis | European Transport Research Review | Springer Nature Link",
                 "url": "https://link.springer.com/article/10.1186/s12544-025-00730-z",
                 "source": "link.springer.com",
-                "summary": "One may be concerned that telecommuting has the potential to reduce traffic congestion, but other factors, such as increasing the distance between home and city center or adding new, making the overall balance of trips equal to or even greater than that of a commuter, could contribute to more congestion.",
+                "summary": "Despite increased remote work, traffic congestion has returned, with 72% of urban areas experiencing greater congestion than before the pandemic [37.",
                 "relevance_score": 0.667,
                 "extraction_provider": "search_snippet"
               },
               {
-                "title": "How Telecommuting is Redrawing U.S. Traffic - CoworkingCafe Blog",
-                "url": "https://www.coworkingcafe.com/blog/telecommuting-impact-on-traffic",
-                "source": "coworkingcafe.com",
-                "summary": "And while remote work can alleviate some congestion, it is not an across-the-board solution.",
+                "title": "Telecommuting can reduce congestion, but might create other traffic problems",
+                "url": "https://theconversation.com/telecommuting-can-reduce-congestion-but-might-create-other-traffic-problems-164212",
+                "source": "theconversation.com",
+                "summary": "Studies conducted prior to the COVID-19 pandemic have shown that telecommuting can help reduce traffic congestion by decreasing the number of vehicles on roads at peak hours and the amount of time commuters spend on roads.",
                 "relevance_score": 0.5,
                 "extraction_provider": "search_snippet"
               },
               {
-                "title": "Top Strategies to Reduce Traffic Congestion",
-                "url": "https://commutepa.org/top-strategies-to-reduce-traffic-congestion",
-                "source": "commutepa.org",
-                "summary": "Work schedules also play a big role in reducing traffic congestion.",
+                "title": "Remote Work Integration - SustainCommute",
+                "url": "https://www.sustaincommute.com/remote-work.html",
+                "source": "sustaincommute.com",
+                "summary": "## Negotiating Remote Work Arrangements [...] Compressed work weeks also enable better route optimization by avoiding peak traffic times.",
                 "relevance_score": 0.5,
+                "extraction_provider": "search_snippet"
+              },
+              {
+                "title": "Can Working and Shopping from Home Really Reduce Traffic Congestion?",
+                "url": "https://blogs.dal.ca/openthink/can-working-and-shopping-from-home-really-reduce-traffic-congestion",
+                "source": "blogs.dal.ca",
+                "summary": "It reveals that individuals opting for full-time remote work log an average of 18% fewer auto kilometers traveled (VKT) compared to their hybrid counterparts.",
+                "relevance_score": 0.333,
                 "extraction_provider": "search_snippet"
               }
             ],
